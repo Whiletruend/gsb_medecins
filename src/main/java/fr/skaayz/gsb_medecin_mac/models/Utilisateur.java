@@ -2,15 +2,16 @@ package fr.skaayz.gsb_medecin_mac.models;
 
 public class Utilisateur {
     // Variables
-    private int id;
-    private static String username = "";
-    private static String password = "";
+    private final int id;
+    private static String nom_utilisateur;
+    private static String mot_de_passe;
+    private static Utilisateur utilisateurActuel;
 
     // Constructor
-    public Utilisateur(int id, String username, String password) {
+    public Utilisateur(int id, String nom_utilisateur, String mot_de_passe) {
         this.id = id;
-        this.username = username;
-        this.password = password;
+        this.nom_utilisateur = nom_utilisateur;
+        this.mot_de_passe = mot_de_passe;
     }
 
     // Functions
@@ -18,31 +19,27 @@ public class Utilisateur {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public static String getNom_utilisateur() {
+        return nom_utilisateur;
     }
 
-    public String getUsername() {
-        return username;
+    public static String getMot_de_passe() {
+        return mot_de_passe;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public static Utilisateur getUtilisateurActuel() {
+        return Utilisateur.utilisateurActuel;
     }
 
-    public String getPassword() {
-        return password;
+    public static void setUtilisateurActual(Utilisateur utilisateur) {
+        Utilisateur.utilisateurActuel = utilisateur;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void disconnectUser() {
+        Utilisateur.utilisateurActuel = null;
     }
 
     public boolean isConnected() {
-        if(getUsername().trim().isEmpty() || getPassword().trim().isEmpty()) {
-            return false;
-        } else {
-            return true;
-        }
+        return !Utilisateur.utilisateurActuel.getNom_utilisateur().trim().isEmpty() && !Utilisateur.utilisateurActuel.getMot_de_passe().trim().isEmpty();
     }
 }

@@ -9,19 +9,19 @@
    <children>
       <TableView id="medicTableView" fx:id="medicTableView" prefHeight="557.0" prefWidth="846.0" styleClass="medicTableView" stylesheets="@../css/app.css">
         <columns>
-            <TableColumn id="col" fx:id="id" prefWidth="75.0" resizable="false" text="#">
+            <TableColumn id="col" fx:id="id" prefWidth="75.0" text="#">
                 <cellValueFactory><PropertyValueFactory property="id" /></cellValueFactory>
             </TableColumn>
-            <TableColumn id="col" fx:id="lastname" prefWidth="142.0" resizable="false" text="Nom">
+            <TableColumn id="col" fx:id="lastname" prefWidth="142.0" text="Nom">
                 <cellValueFactory><PropertyValueFactory property="nom" /></cellValueFactory>
             </TableColumn>
-            <TableColumn id="col" fx:id="firstname" prefWidth="89.0" resizable="false" text="Prénom">
+            <TableColumn id="col" fx:id="firstname" prefWidth="103.0" text="Prénom">
                 <cellValueFactory><PropertyValueFactory property="prenom" /></cellValueFactory>
             </TableColumn>
-            <TableColumn id="col" fx:id="speciality" minWidth="0.0" prefWidth="389.0" resizable="false" text="Spécialité Complémentaire">
+            <TableColumn id="col" fx:id="speciality" minWidth="0.0" prefWidth="223.0" text="Spécialité">
                 <cellValueFactory><PropertyValueFactory property="specialite" /></cellValueFactory>
             </TableColumn>
-            <TableColumn id="col" fx:id="department" prefWidth="150.0" resizable="false" text="Département">
+            <TableColumn id="col" fx:id="department" prefWidth="150.0" text="Département">
                 <cellValueFactory><PropertyValueFactory property="departement_id" /></cellValueFactory>
             </TableColumn>
         </columns>

@@ -19,10 +19,17 @@ public class MedecinController implements Initializable {
     public TableColumn<Medecin, Integer> id, department;
 
     @FXML
-    public TableColumn<Medecin, String> lastname, firstname, phone, address, speciality;
+    //public TableColumn<Medecin, String> lastname, firstname, phone, address, speciality;
+    public TableColumn<Medecin, String> lastname, firstname, speciality;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        /*
+        for(Medecin unMedecin : MedecinAccess.getAll()) {
+            System.out.println(unMedecin.getFirstname() + " " + unMedecin.getLastname());
+        }
+        */
+
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         lastname.setCellValueFactory(new PropertyValueFactory<>("nom"));
         firstname.setCellValueFactory(new PropertyValueFactory<>("prenom"));
@@ -34,8 +41,6 @@ public class MedecinController implements Initializable {
         medicTableView.refresh();
         medicTableView.getItems().addAll(MedecinAccess.getAll());
         medicTableView.setPlaceholder(new Label("Médecins non chargés."));
-
-        //System.out.println(MedicAccess.getAll());
     }
 }
 

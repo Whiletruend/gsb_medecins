@@ -17,7 +17,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("views/connect-view.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("views/app-view.fxml")));
         Scene scene = new Scene(root);
 
         stage.initStyle(StageStyle.UNDECORATED);
@@ -41,6 +41,12 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        /*
+        Utilisateur user = UtilisateurAccess.getUtilisateur("admin", "aaaa");
+        System.out.println("name: " + user.getNom_utilisateur() + " | password: " + user.getMot_de_passe());
+        System.out.println("is connected? " + user.isConnected());
+         */
+
         launch();
     }
 }

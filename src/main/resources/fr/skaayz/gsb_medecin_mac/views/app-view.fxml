@@ -17,11 +17,11 @@
          <children>
             <Pane fx:id="main_navbar" prefHeight="91.0" prefWidth="1135.0" style="-fx-background-color: ffffff; -fx-background-radius: 10;">
                <children>
-                  <Button fx:id="soft_back_button" layoutX="-71.0" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#softBackButtonClicked" prefHeight="60.0" prefWidth="267.0" style="-fx-font-size: 16;" stylesheets="@../../css/app.css" text="RETOUR" textFill="#5584e6">
+                  <Button fx:id="soft_back_button" layoutX="-71.0" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#softBackButtonClicked" prefHeight="60.0" prefWidth="267.0" style="-fx-font-size: 16;" stylesheets="@../css/app.css" text="RETOUR" textFill="#5584e6">
                      <graphic>
                         <ImageView fitHeight="60.0" fitWidth="197.0" pickOnBounds="true" preserveRatio="true" styleClass="button-transparent-onWhite">
                            <image>
-                              <Image url="@../../assets/icons/arrow_left_blue.png" />
+                              <Image url="@../assets/icons/arrow_left_blue.png" />
                            </image>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -39,7 +39,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="soft_close_button" layoutX="1055.0" layoutY="15.0" mnemonicParsing="false" onAction="#softCloseButtonClicked" prefHeight="60.0" prefWidth="50.0" stylesheets="@../../css/app.css" textFill="#5584e6">
+                  <Button fx:id="soft_close_button" layoutX="1055.0" layoutY="15.0" mnemonicParsing="false" onAction="#softCloseButtonClicked" prefHeight="60.0" prefWidth="50.0" stylesheets="@../css/app.css" textFill="#5584e6">
                      <styleClass>
                         <String fx:value="button-transparent-onWhite" />
                         <String fx:value="nunito-bold" />
@@ -50,7 +50,7 @@
                      <graphic>
                         <ImageView fitHeight="60.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" styleClass="button-transparent-onWhite">
                            <image>
-                              <Image url="@../../assets/icons/close_blue.png" />
+                              <Image url="@../assets/icons/close_blue.png" />
                            </image>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -61,17 +61,17 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="main_countries_button" layoutX="418.0" mnemonicParsing="false" onAction="#mainCountriesButtonClicked" prefHeight="91.0" prefWidth="178.0" styleClass="button-soft" stylesheets="@../../css/app.css" text="Pays">
+                  <Button fx:id="main_countries_button" layoutX="418.0" mnemonicParsing="false" onAction="#mainCountriesButtonClicked" prefHeight="91.0" prefWidth="178.0" styleClass="button-soft" stylesheets="@../css/app.css" text="Pays">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="main_departs_button" layoutX="597.0" mnemonicParsing="false" onAction="#mainDepartsButtonClicked" prefHeight="91.0" prefWidth="178.0" styleClass="button-soft" stylesheets="@../../css/app.css" text="Départements">
+                  <Button fx:id="main_departs_button" layoutX="597.0" mnemonicParsing="false" onAction="#mainDepartsButtonClicked" prefHeight="91.0" prefWidth="178.0" styleClass="button-soft" stylesheets="@../css/app.css" text="Départements">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="main_medics_button" layoutX="776.0" mnemonicParsing="false" onAction="#mainMedicsButtonClicked" prefHeight="91.0" prefWidth="178.0" styleClass="button-soft" stylesheets="@../../css/app.css" text="Médecins">
+                  <Button fx:id="main_medics_button" layoutX="776.0" mnemonicParsing="false" onAction="#mainMedicsButtonClicked" prefHeight="91.0" prefWidth="178.0" styleClass="button-soft" stylesheets="@../css/app.css" text="Médecins">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

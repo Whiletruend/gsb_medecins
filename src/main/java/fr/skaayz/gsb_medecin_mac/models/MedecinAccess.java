@@ -41,17 +41,17 @@ public class MedecinAccess extends Database {
 
             if (request.next()) {
                 medecin = new Medecin(
-                        request.getInt("id"),
-                        request.getString("nom"),
-                        request.getString("prenom"),
-                        request.getString("adresse"),
-                        request.getString("tel"),
-                        request.getString("specialite"),
-                        request.getInt("departement")
+                    request.getInt("id"),
+                    request.getString("nom"),
+                    request.getString("prenom"),
+                    request.getString("adresse"),
+                    request.getString("tel"),
+                    request.getString("specialite"),
+                    request.getInt("departement_id")
                 );
             }
         } catch(SQLException e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
 
         return medecin;
