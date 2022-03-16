@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="385.0" style="-fx-background-color: #5584e6; -fx-background-radius: 25;" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.skaayz.gsb_medecin_mac.MainController">
+    <children>
+        <Label layoutX="21.0" layoutY="255.0" mouseTransparent="true" styleClass="nunito-regular" text="Connexion en privilège" textAlignment="JUSTIFY" textFill="#fdfeff">
+            <font>
+                <Font name="Inconsolata" size="28.0" />
+            </font>
+        </Label>
+        <Label layoutX="21.0" layoutY="285.0" mouseTransparent="true" styleClass="nunito-bold" text="Administrateur" textAlignment="JUSTIFY" textFill="#fdfeff">
+            <font>
+                <Font name="Arial" size="28.0" />
+            </font>
+        </Label>
+        <Button fx:id="admin_button" layoutX="19.0" layoutY="482.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="348.0" style="-fx-background-radius: 25;" styleClass="button-white" stylesheets="@../css/app.css" text="Connexion" textAlignment="CENTER" textFill="#383838">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Button fx:id="connect_back_button" contentDisplay="CENTER" layoutX="21.0" layoutY="535.0" mnemonicParsing="false" onAction="#connectBackButtonClicked" prefHeight="40.0" prefWidth="348.0" style="-fx-background-radius: 25;" styleClass="button-transparent" stylesheets="@../css/app.css" text="Retour" textAlignment="CENTER" textFill="#fdfeff" underline="true">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <ImageView fitHeight="400.0" fitWidth="300.0" layoutX="42.5" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../assets/img/login.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="main_close_button" layoutX="297.0" layoutY="-7.0" mnemonicParsing="false" onAction="#closeButtonClicked" scaleX="0.5" scaleY="0.5" style="-fx-background-color: transparent;" stylesheets="@../css/app.css">
+            <graphic>
+                <ImageView fitHeight="76.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../assets/icons/close.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+      <TextField layoutX="21.0" layoutY="355.0" prefHeight="40.0" prefWidth="348.0" promptText="Nom d'utilisateur" styleClass="button-white" stylesheets="@../css/app.css">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="21.0" layoutY="409.0" prefHeight="40.0" prefWidth="348.0" promptText="Mot de passe" styleClass="button-white" stylesheets="@../css/app.css">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+    </children>
+</AnchorPane>

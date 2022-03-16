@@ -1,0 +1,126 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+
+.root {
+    -fx-background-color: transparent;
+}
+
+.nunito-regular {
+    -fx-font-family: 'Nunito Regular', sans-serif;
+}
+
+.nunito-bold {
+    -fx-font-family: 'Nunito Bold', sans-serif;
+}
+
+.nunito-light {
+    -fx-font-family: 'Nunito Light', sans-serif;
+}
+
+.blue {
+    -fx-background-color: #5584e6;
+}
+
+/* Buttons */
+.button-white {
+    -fx-background-color: #fdfeff;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);
+
+    transition-duration: 4s;
+}
+
+.button-white:hover {
+    -fx-background-color: rgba(253, 254, 255, 0.90);
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);
+}
+
+.button-transparent-onWhite {
+    -fx-background-color: transparent;
+}
+
+.button-transparent-onWhite:hover {
+    -fx-background-color: transparent;
+    -fx-text-fill: rgb(51, 108, 207);
+}
+
+.button-transparent {
+    -fx-background-color: transparent;
+}
+
+.button-soft {
+    -fx-background-color: transparent;
+    -fx-text-fill: #96aabe;
+
+    -fx-font-family: 'Nunito Bold', sans-serif;
+    -fx-font-size: 18px;
+}
+
+.button-soft:hover {
+    -fx-text-fill: #5584e6;
+}
+
+.button-soft:focused {
+    -fx-text-fill: #5584e6;
+
+    -fx-border-color: #5584e6 transparent transparent transparent;
+    -fx-border-width: 5px;
+    -fx-border-radius: 1px;
+}
+
+.button-transparent:hover {
+    -fx-background-color: transparent;
+    -fx-text-fill: rgba(253, 254, 255, 0.90);
+}
+
+/* Background */
+.white-background {
+    -fx-background-color: white;
+}
+
+.transparent-background {
+    -fx-background-color: transparent;
+}
+
+.glow-blue {
+    -fx-effect: dropshadow(three-pass-box, rgba(85, 132, 230, 1), 25, 0, 0, 0);
+}
+
+/* Medic Table View */
+.medicTableView{
+    -fx-background-color: #ffffff;
+    -fx-fixed-cell-size : 80;
+    -fx-font-family: "Nunito Bold", sans-serif !important;
+
+    overflow: hidden;
+}
+.medicTableView .column-header-background{
+}
+.medicTableView .column-header-background .filler{
+    -fx-background-color: #ffffff;
+}
+
+.medicTableView .scroll-bar * {
+    -fx-min-width: 0;
+    -fx-pref-width: 0;
+    -fx-max-width: 0;
+
+    -fx-min-height: 0;
+    -fx-pref-height: 0;
+    -fx-max-height: 0;
+}
+
+#col {
+    -fx-background-color: #ffffff;
+    -fx-border-color: white !important;
+    -fx-border-width: 1px !important;
+    -fx-border-insets: 0 !important;
+    -fx-font-size: 1.2em;
+    -fx-text-fill: #202940 !important;
+    -fx-font-family: "Nunito", sans-serif !important;
+    -fx-font-size: 17px;
+    -fx-padding: 1em 0;
+    -fx-text-alignment: center !important;
+    -fx-column-halignment: center !important;
+    -fx-alignment: center !important;
+}
