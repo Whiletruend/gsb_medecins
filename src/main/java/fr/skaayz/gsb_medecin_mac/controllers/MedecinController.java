@@ -38,3 +38,22 @@ public class MedecinController implements Initializable {
         //System.out.println(MedicAccess.getAll());
     }
 }
+
+/*
+
+//Medic test = MedicAccess.getMedicByID(7);
+
+        //System.out.println(unMedecin.getFirstname() + " " + unMedecin.getLastname());
+
+        //System.out.println(MedicAccess.getMedicByID(1006).getFirstname());
+
+        /*
+        Database db = new Database();
+        try {
+            ResultSet rs = db.query("SELECT * FROM medecin where id = 1;");
+            System.out.println(rs.getString("nom"));
+
+        } catch (SQLException e) {
+            System.out.println("Erreur SQL");
+        }
+ */
