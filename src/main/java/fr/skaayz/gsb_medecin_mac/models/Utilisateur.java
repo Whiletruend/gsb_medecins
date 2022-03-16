@@ -3,8 +3,8 @@ package fr.skaayz.gsb_medecin_mac.models;
 public class Utilisateur {
     // Variables
     private int id;
-    private String username;
-    private String password;
+    private static String username = "";
+    private static String password = "";
 
     // Constructor
     public Utilisateur(int id, String username, String password) {
@@ -36,5 +36,13 @@ public class Utilisateur {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isConnected() {
+        if(getUsername().trim().isEmpty() || getPassword().trim().isEmpty()) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }

@@ -17,8 +17,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("views/not_admin_views/app-view.fxml")));
-        Scene scene = new Scene(root, 1135, 683);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("views/connect-view.fxml")));
+        Scene scene = new Scene(root);
 
         stage.initStyle(StageStyle.UNDECORATED);
         stage.initStyle(StageStyle.TRANSPARENT);
