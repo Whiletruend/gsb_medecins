@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="846.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.skaayz.gsb_medecin_mac.controllers.PaysController">
+   <children>
+      <Label layoutX="3.0" layoutY="-15.0" prefHeight="94.0" prefWidth="233.0" styleClass="nunito-bold" stylesheets="@../../css/app.css" text="PAYS">
+         <font>
+            <Font size="96.0" />
+         </font></Label>
+   </children>
+</AnchorPane>

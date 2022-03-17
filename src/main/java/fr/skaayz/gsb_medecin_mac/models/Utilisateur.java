@@ -3,9 +3,9 @@ package fr.skaayz.gsb_medecin_mac.models;
 public class Utilisateur {
     // Variables
     private final int id;
-    private static String nom_utilisateur;
-    private static String mot_de_passe;
-    private static Utilisateur utilisateurActuel;
+    private final String nom_utilisateur;
+    private final String mot_de_passe;
+    private static Utilisateur utilisateurActuel = null;
 
     // Constructor
     public Utilisateur(int id, String nom_utilisateur, String mot_de_passe) {
@@ -19,11 +19,11 @@ public class Utilisateur {
         return id;
     }
 
-    public static String getNom_utilisateur() {
+    public String getNom_utilisateur() {
         return nom_utilisateur;
     }
 
-    public static String getMot_de_passe() {
+    public String getMot_de_passe() {
         return mot_de_passe;
     }
 
@@ -35,11 +35,11 @@ public class Utilisateur {
         Utilisateur.utilisateurActuel = utilisateur;
     }
 
-    public void disconnectUser() {
+    public static void disconnectUser() {
         Utilisateur.utilisateurActuel = null;
     }
 
-    public boolean isConnected() {
-        return !Utilisateur.utilisateurActuel.getNom_utilisateur().trim().isEmpty() && !Utilisateur.utilisateurActuel.getMot_de_passe().trim().isEmpty();
+    public static boolean isConnected() {
+        return Utilisateur.getUtilisateurActuel() != null;
     }
 }

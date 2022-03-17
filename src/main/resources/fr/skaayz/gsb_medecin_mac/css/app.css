@@ -52,6 +52,21 @@
     -fx-background-color: transparent;
 }
 
+.button-disconnect {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: 'Nunito Bold', sans-serif;
+    -fx-font-size: 13px;
+
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);
+}
+
+.button-disconnect:hover {
+    -fx-background-color: #c0392b;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: 'Nunito Bold', sans-serif;
+}
+
 .button-soft {
     -fx-background-color: transparent;
     -fx-text-fill: #96aabe;

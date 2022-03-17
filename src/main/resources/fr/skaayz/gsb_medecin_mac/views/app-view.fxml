@@ -4,12 +4,14 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="main_app_frame" prefHeight="683.0" prefWidth="1135.0" style="-fx-background-color: F9F9F9; -fx-background-radius: 10; -fx-font-size: 22px;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.skaayz.gsb_medecin_mac.MainController">
    <children>
@@ -80,7 +82,41 @@
             </Pane>
          </children>
       </VBox>
-      <Pane layoutX="15.0" layoutY="108.0" prefHeight="559.0" prefWidth="250.0" style="-fx-background-color: #5584e6; -fx-background-radius: 10;" />
-      <BorderPane fx:id="test_border_pane" layoutX="275.0" layoutY="109.0" prefHeight="557.0" prefWidth="846.0" />
+      <Pane layoutX="14.0" layoutY="107.0" prefHeight="559.0" prefWidth="250.0" style="-fx-background-color: #5584e6; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="soft_disconnect_button" layoutX="29.0" layoutY="495.0" mnemonicParsing="false" onAction="#softDisconnectButtonClicked" prefHeight="42.0" prefWidth="185.0" style="-fx-background-radius: 5;" styleClass="button-white" stylesheets="@../css/app.css" text="Déconnexion">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ImageView fitHeight="524.0" fitWidth="67.0" layoutX="26.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons/user.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="soft_account_type" layoutX="30.0" layoutY="108.0" styleClass="nunito-bold" stylesheets="@../css/app.css" text="Invité" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="30.0" layoutY="137.0" style="-fx-font-size: 15px;" styleClass="nunito-bold" stylesheets="@../css/app.css" text="Mode d'accès:" textFill="#dddddd">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="soft_account_access" layoutX="131.0" layoutY="137.0" style="-fx-font-size: 15px;" styleClass="nunito-bold" stylesheets="@../css/app.css" text="Restreint" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <BorderPane fx:id="soft_RightBorderPane" layoutX="275.0" layoutY="109.0" prefHeight="557.0" prefWidth="846.0" />
+      <Label layoutX="533.0" layoutY="136.0" style="-fx-font-size: 30px;" styleClass="nunito-bold" stylesheets="@../css/app.css" text="Bienvenue sur l'application" textAlignment="CENTER" />
+      <Label layoutX="562.0" layoutY="166.0" style="-fx-font-size: 30px;" styleClass="nunito-bold" stylesheets="@../css/app.css" text="Galaxy Swiss Bourdin" textAlignment="CENTER" />
+      <Label layoutX="304.0" layoutY="212.0" prefHeight="374.0" prefWidth="787.0" style="-fx-font-size: 20px;" styleClass="nunito-regular" stylesheets="@../css/app.css" text="Le laboratoire Galaxy Swiss Bourdin (GSB) est issu de la fusion entre le géant américain Galaxy (spécialisé dans le secteur des maladies virales dont le SIDA et les hépatites) et le conglomérat européen Swiss Bourdin (travaillant sur des médicaments plus conventionnels), lui même déjà union de trois petits laboratoires .En 2009, les deux géants pharmaceutiques ont uni leurs forces pour créer un leader de ce secteur industriel. L’entité Galaxy Swiss Bourdin Europe a établi son siège administratif à Paris.Le laboratoire Galaxy Swiss Bourdin (GSB) est issu de la fusion entre le géant américain Galaxy (spécialisé dans le secteur des maladies virales dont le SIDA et les hépatites) et le conglomérat européen Swiss Bourdin (travaillant sur des médicaments plus conventionnels), lui même déjà union de trois petits laboratoires .En 2009, les deux géants pharmaceutiques ont uni leurs forces pour créer un leader de ce secteur industriel. L’entité Galaxy Swiss Bourdin Europe a établi son siège administratif à Paris." textAlignment="JUSTIFY" textOverrun="CLIP" wrapText="true" />
    </children>
 </AnchorPane>

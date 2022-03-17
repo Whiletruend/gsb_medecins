@@ -1,8 +1,11 @@
 package fr.skaayz.gsb_medecin_mac;
 
+import fr.skaayz.gsb_medecin_mac.models.Utilisateur;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
@@ -14,9 +17,11 @@ import javafx.scene.Node;
 import javafx.event.ActionEvent;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
-public class MainController {
+public class MainController implements Initializable {
     // Private Vars
     private static Stage stage;
     private static double xOffset = 0;
@@ -60,24 +65,30 @@ public class MainController {
     private javafx.scene.control.Button soft_close_button;
 
     @FXML
-    private BorderPane test_border_pane;
+    private BorderPane soft_RightBorderPane;
+
+    @FXML
+    private Label soft_account_type;
+
+    @FXML
+    private Label soft_account_access;
 
     @FXML
     private void mainCountriesButtonClicked() throws IOException {
-        AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("views/countries-view.fxml")));
-        test_border_pane.setCenter(view);
+        AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("views/tabs/countries-view.fxml")));
+        soft_RightBorderPane.setCenter(view);
     }
 
     @FXML
     private void mainDepartsButtonClicked() throws IOException {
-        AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("views/departs-view.fxml")));
-        test_border_pane.setCenter(view);
+        AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("views/tabs/departs-view.fxml")));
+        soft_RightBorderPane.setCenter(view);
     }
 
     @FXML
     private void mainMedicsButtonClicked() throws IOException {
-        AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("views/medics-view.fxml")));
-        test_border_pane.setCenter(view);
+        AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("views/tabs/medics-view.fxml")));
+        soft_RightBorderPane.setCenter(view);
     }
 
     @FXML
@@ -105,6 +116,21 @@ public class MainController {
     @FXML
     private void mainNotAdminButtonClicked(ActionEvent event) throws IOException {
         changePage("views/app-view.fxml", event);
+    }
+
+    @FXML
+    private void softDisconnectButtonClicked(ActionEvent event) throws IOException {
+        changePage("views/main-view.fxml", event);
+        Utilisateur.disconnectUser();
+    }
+
+    // Init
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        if(Utilisateur.isConnected()) {
+            soft_account_type.setText("Administrateur");
+            soft_account_access.setText("Complet");
+        }
     }
 }
 

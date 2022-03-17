@@ -1,4 +1,5 @@
 package fr.skaayz.gsb_medecin_mac.controllers;
+
 import fr.skaayz.gsb_medecin_mac.models.Medecin;
 import fr.skaayz.gsb_medecin_mac.models.MedecinAccess;
 import javafx.fxml.FXML;
