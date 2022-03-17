@@ -8,13 +8,13 @@ import java.sql.SQLException;
 
 public class MedecinAccess extends Database {
     public static ObservableList<Medecin> getAll() {
-        ObservableList<Medecin> medecin_List = FXCollections.observableArrayList();
+        ObservableList<Medecin> medecins_List = FXCollections.observableArrayList();
 
         try {
             ResultSet request = Database.query("SELECT * FROM medecin;");
 
             while(request.next()) {
-                medecin_List.addAll(
+                medecins_List.addAll(
                     new Medecin(
                         request.getInt("id"),
                         request.getString("nom"),
@@ -30,7 +30,7 @@ public class MedecinAccess extends Database {
             e.printStackTrace();
         }
 
-        return medecin_List;
+        return medecins_List;
     }
 
     public static Medecin getMedicByID(int id) {
@@ -57,16 +57,3 @@ public class MedecinAccess extends Database {
         return medecin;
     }
 }
-
-
-/*
-        Database db = new Database();
-        try {
-            ResultSet rs = db.query("SELECT * FROM medecin;");
-            while(rs.next()) {
-                System.out.println(rs.getString("nom"));
-            }
-        } catch (SQLException e) {
-            System.out.println("Erreur SQL");
-        }
-         */

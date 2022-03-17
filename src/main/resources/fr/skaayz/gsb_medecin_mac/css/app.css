@@ -106,16 +106,16 @@
 }
 
 /* Medic Table View */
-.medicTableView{
+.tableView{
     -fx-background-color: #ffffff;
     -fx-fixed-cell-size : 80;
     -fx-font-family: "Nunito Bold", sans-serif !important;
 
     overflow: hidden;
 }
-.medicTableView .column-header-background{
+.tableView .column-header-background{
 }
-.medicTableView .column-header-background .filler{
+.tableView .column-header-background .filler{
     -fx-background-color: #ffffff;
 }
 

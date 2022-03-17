@@ -2,9 +2,9 @@ package fr.skaayz.gsb_medecin_mac.models;
 
 public class Departement {
     // Variables
-    private final int id;
-    private final String libelle;
-    private final int pays_id;
+    private int id;
+    private String libelle;
+    private int pays_id;
 
     // Constructor
     public Departement(int id, String libelle, int pays_id) {
@@ -14,15 +14,15 @@ public class Departement {
     }
 
     // Functions
-    public int getID() {
+    public int getId() {
         return id;
     }
 
-    public String getName() {
+    public String getLibelle() {
         return libelle;
     }
 
-    public int getCountryID() {
+    public int getPays_id() {
         return pays_id;
     }
 }

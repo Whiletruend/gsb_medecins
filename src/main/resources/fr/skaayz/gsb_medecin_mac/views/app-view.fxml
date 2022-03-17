@@ -17,7 +17,7 @@
    <children>
       <VBox prefHeight="92.0" prefWidth="1135.0">
          <children>
-            <Pane fx:id="main_navbar" prefHeight="91.0" prefWidth="1135.0" style="-fx-background-color: ffffff; -fx-background-radius: 10;">
+            <Pane fx:id="soft_navbar" prefHeight="91.0" prefWidth="1135.0" style="-fx-background-color: ffffff; -fx-background-radius: 10;">
                <children>
                   <Button fx:id="soft_back_button" layoutX="-71.0" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#softBackButtonClicked" prefHeight="60.0" prefWidth="267.0" style="-fx-font-size: 16;" stylesheets="@../css/app.css" text="RETOUR" textFill="#5584e6">
                      <graphic>
@@ -63,17 +63,22 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="main_countries_button" layoutX="418.0" mnemonicParsing="false" onAction="#mainCountriesButtonClicked" prefHeight="91.0" prefWidth="178.0" styleClass="button-soft" stylesheets="@../css/app.css" text="Pays">
+                  <Button fx:id="soft_countries_button" layoutX="487.0" mnemonicParsing="false" onAction="#softCountriesButtonClicked" prefHeight="91.0" prefWidth="178.0" styleClass="button-soft" stylesheets="@../css/app.css" text="Pays">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="main_departs_button" layoutX="597.0" mnemonicParsing="false" onAction="#mainDepartsButtonClicked" prefHeight="91.0" prefWidth="178.0" styleClass="button-soft" stylesheets="@../css/app.css" text="Départements">
+                  <Button fx:id="soft_departs_button" layoutX="666.0" mnemonicParsing="false" onAction="#softDepartsButtonClicked" prefHeight="91.0" prefWidth="178.0" styleClass="button-soft" stylesheets="@../css/app.css" text="Départements">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="main_medics_button" layoutX="776.0" mnemonicParsing="false" onAction="#mainMedicsButtonClicked" prefHeight="91.0" prefWidth="178.0" styleClass="button-soft" stylesheets="@../css/app.css" text="Médecins">
+                  <Button fx:id="soft_medics_button" layoutX="845.0" mnemonicParsing="false" onAction="#softMedicsButtonClicked" prefHeight="91.0" prefWidth="178.0" styleClass="button-soft" stylesheets="@../css/app.css" text="Médecins">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="soft_home_button" layoutX="310.0" mnemonicParsing="false" onAction="#softHomeButtonClicked" prefHeight="91.0" prefWidth="178.0" styleClass="button-soft" stylesheets="@../css/app.css" text="Accueil">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -115,8 +120,5 @@
          </children>
       </Pane>
       <BorderPane fx:id="soft_RightBorderPane" layoutX="275.0" layoutY="109.0" prefHeight="557.0" prefWidth="846.0" />
-      <Label layoutX="533.0" layoutY="136.0" style="-fx-font-size: 30px;" styleClass="nunito-bold" stylesheets="@../css/app.css" text="Bienvenue sur l'application" textAlignment="CENTER" />
-      <Label layoutX="562.0" layoutY="166.0" style="-fx-font-size: 30px;" styleClass="nunito-bold" stylesheets="@../css/app.css" text="Galaxy Swiss Bourdin" textAlignment="CENTER" />
-      <Label layoutX="304.0" layoutY="212.0" prefHeight="374.0" prefWidth="787.0" style="-fx-font-size: 20px;" styleClass="nunito-regular" stylesheets="@../css/app.css" text="Le laboratoire Galaxy Swiss Bourdin (GSB) est issu de la fusion entre le géant américain Galaxy (spécialisé dans le secteur des maladies virales dont le SIDA et les hépatites) et le conglomérat européen Swiss Bourdin (travaillant sur des médicaments plus conventionnels), lui même déjà union de trois petits laboratoires .En 2009, les deux géants pharmaceutiques ont uni leurs forces pour créer un leader de ce secteur industriel. L’entité Galaxy Swiss Bourdin Europe a établi son siège administratif à Paris.Le laboratoire Galaxy Swiss Bourdin (GSB) est issu de la fusion entre le géant américain Galaxy (spécialisé dans le secteur des maladies virales dont le SIDA et les hépatites) et le conglomérat européen Swiss Bourdin (travaillant sur des médicaments plus conventionnels), lui même déjà union de trois petits laboratoires .En 2009, les deux géants pharmaceutiques ont uni leurs forces pour créer un leader de ce secteur industriel. L’entité Galaxy Swiss Bourdin Europe a établi son siège administratif à Paris." textAlignment="JUSTIFY" textOverrun="CLIP" wrapText="true" />
    </children>
 </AnchorPane>

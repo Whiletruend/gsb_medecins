@@ -14,52 +14,27 @@ import java.util.ResourceBundle;
 
 public class MedecinController implements Initializable {
     @FXML
-    public TableView<Medecin> medicTableView;
+    public TableView<Medecin> tableView;
 
     @FXML
-    public TableColumn<Medecin, Integer> id, department;
+    public TableColumn<Medecin, Integer> id, departement_id;
 
     @FXML
     //public TableColumn<Medecin, String> lastname, firstname, phone, address, speciality;
-    public TableColumn<Medecin, String> lastname, firstname, speciality;
+    public TableColumn<Medecin, String> nom, prenom, specialite;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        /*
-        for(Medecin unMedecin : MedecinAccess.getAll()) {
-            System.out.println(unMedecin.getFirstname() + " " + unMedecin.getLastname());
-        }
-        */
-
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        lastname.setCellValueFactory(new PropertyValueFactory<>("nom"));
-        firstname.setCellValueFactory(new PropertyValueFactory<>("prenom"));
+        nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
+        prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
         //address.setCellValueFactory(new PropertyValueFactory<>("adresse"));
         //phone.setCellValueFactory(new PropertyValueFactory<>("tel"));
-        speciality.setCellValueFactory(new PropertyValueFactory<>("specialite"));
-        department.setCellValueFactory(new PropertyValueFactory<>("departement_id"));
+        specialite.setCellValueFactory(new PropertyValueFactory<>("specialite"));
+        departement_id.setCellValueFactory(new PropertyValueFactory<>("departement_id"));
 
-        medicTableView.refresh();
-        medicTableView.getItems().addAll(MedecinAccess.getAll());
-        medicTableView.setPlaceholder(new Label("Médecins non chargés."));
+        tableView.refresh();
+        tableView.getItems().addAll(MedecinAccess.getAll());
+        tableView.setPlaceholder(new Label("Médecins non chargés."));
     }
 }
-
-/*
-
-//Medic test = MedicAccess.getMedicByID(7);
-
-        //System.out.println(unMedecin.getFirstname() + " " + unMedecin.getLastname());
-
-        //System.out.println(MedicAccess.getMedicByID(1006).getFirstname());
-
-        /*
-        Database db = new Database();
-        try {
-            ResultSet rs = db.query("SELECT * FROM medecin where id = 1;");
-            System.out.println(rs.getString("nom"));
-
-        } catch (SQLException e) {
-            System.out.println("Erreur SQL");
-        }
- */

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="846.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="211.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: &quot;Nunito Bold&quot;; -fx-font-size: 30px;" text="Bienvenue sur l'application Galaxy Swiss Bourdin" textAlignment="CENTER" wrappingWidth="424.4812755584717" />
+      <Text layoutX="77.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: &quot;Nunito Regular&quot;; -fx-font-size: 20px;" text="Le laboratoire Galaxy Swiss Bourdin (GSB) est issu de la fusion entre le géant américain Galaxy (spécialisé dans le secteur des maladies virales dont le SIDA et les hépatites) et le conglomérat européen Swiss Bourdin (travaillant sur des médicaments plus conventionnels), lui même déjà union de trois petits laboratoires .En 2009, les deux géants pharmaceutiques ont uni leurs forces pour créer un leader de ce secteur industriel. L’entité Galaxy Swiss Bourdin Europe a établi son siège administratif à Paris.Le laboratoire Galaxy Swiss Bourdin (GSB) est issu de la fusion entre le géant américain Galaxy (spécialisé dans le secteur des maladies virales dont le SIDA et les hépatites) et le conglomérat européen Swiss Bourdin (travaillant sur des médicaments plus conventionnels), lui même déjà union de trois petits laboratoires .En 2009, les deux géants pharmaceutiques ont uni leurs forces pour créer un leader de ce secteur industriel. L’entité Galaxy Swiss Bourdin Europe a établi son siège administratif à Paris." textAlignment="JUSTIFY" wrappingWidth="691.3245983123779" />
+   </children>
+</AnchorPane>

@@ -24,10 +24,19 @@ import java.util.ResourceBundle;
 public class MainController implements Initializable {
     // Private Vars
     private static Stage stage;
+    private static Boolean isOnSoftware = false;
     private static double xOffset = 0;
     private static double yOffset = 0;
 
     // Basic Functions
+    public static void setIsOnSoftware(Boolean bool) {
+        MainController.isOnSoftware = bool;
+    }
+
+    public static Boolean isOnSoftware() {
+        return MainController.isOnSoftware;
+    }
+
     public static Parent returnPage(String page) throws IOException {
         return FXMLLoader.load(Objects.requireNonNull(MainController.class.getResource("" + page + "")));
     }
@@ -46,6 +55,8 @@ public class MainController implements Initializable {
     }
 
     public static void changePage(String page, ActionEvent event) throws IOException {
+        setIsOnSoftware(page == "views/app-view.fxml");
+
         Parent root = returnPage(page);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -55,6 +66,11 @@ public class MainController implements Initializable {
 
         stage.setScene(scene);
         stage.show();
+    }
+
+    private void loadFXML(String page) throws IOException {
+        AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(page)));
+        soft_RightBorderPane.setCenter(view);
     }
 
     // FXML Functions
@@ -74,21 +90,23 @@ public class MainController implements Initializable {
     private Label soft_account_access;
 
     @FXML
-    private void mainCountriesButtonClicked() throws IOException {
-        AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("views/tabs/countries-view.fxml")));
-        soft_RightBorderPane.setCenter(view);
+    private void softHomeButtonClicked() throws IOException {
+        loadFXML("views/tabs/home-view.fxml");
     }
 
     @FXML
-    private void mainDepartsButtonClicked() throws IOException {
-        AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("views/tabs/departs-view.fxml")));
-        soft_RightBorderPane.setCenter(view);
+    private void softCountriesButtonClicked() throws IOException {
+        loadFXML("views/tabs/countries-view.fxml");
     }
 
     @FXML
-    private void mainMedicsButtonClicked() throws IOException {
-        AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("views/tabs/medics-view.fxml")));
-        soft_RightBorderPane.setCenter(view);
+    private void softDepartsButtonClicked() throws IOException {
+        loadFXML("views/tabs/departs-view.fxml");
+    }
+
+    @FXML
+    private void softMedicsButtonClicked() throws IOException {
+        loadFXML("views/tabs/medics-view.fxml");
     }
 
     @FXML
@@ -127,9 +145,17 @@ public class MainController implements Initializable {
     // Init
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        if(Utilisateur.isConnected()) {
-            soft_account_type.setText("Administrateur");
-            soft_account_access.setText("Complet");
+        if(isOnSoftware()) {
+            try {
+                loadFXML("views/tabs/home-view.fxml");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            if (Utilisateur.isConnected()) {
+                soft_account_type.setText("Administrateur");
+                soft_account_access.setText("Complet");
+            }
         }
     }
 }

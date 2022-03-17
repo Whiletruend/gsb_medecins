@@ -46,6 +46,7 @@ public class UtilisateurController {
                 connect_Infos.setText("Nom d'utilisateur ou mot de passe incorrect");
             } else {
                 MainController.changePage("views/app-view.fxml", event);
+                MainController.setIsOnSoftware(true);
             }
         }
     }
