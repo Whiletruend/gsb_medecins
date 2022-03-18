@@ -18,12 +18,19 @@
             <TableColumn id="col" fx:id="prenom" prefWidth="103.0" text="Prénom">
                 <cellValueFactory><PropertyValueFactory property="prenom" /></cellValueFactory>
             </TableColumn>
+            <TableColumn id="col" fx:id="adresse" prefWidth="103.0" text="Adresse">
+                <cellValueFactory><PropertyValueFactory property="adresse" /></cellValueFactory>
+            </TableColumn>
+            <TableColumn id="col" fx:id="tel" prefWidth="103.0" text="N° Téléphone">
+                <cellValueFactory><PropertyValueFactory property="tel" /></cellValueFactory>
+            </TableColumn>
             <TableColumn id="col" fx:id="specialite" minWidth="0.0" prefWidth="223.0" text="Spécialité">
                 <cellValueFactory><PropertyValueFactory property="specialite" /></cellValueFactory>
             </TableColumn>
             <TableColumn id="col" fx:id="departement_id" prefWidth="150.0" text="Département">
                 <cellValueFactory><PropertyValueFactory property="departement_id" /></cellValueFactory>
             </TableColumn>
+            <TableColumn id="col" fx:id="action" prefWidth="150.0" text="Action"/>
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
