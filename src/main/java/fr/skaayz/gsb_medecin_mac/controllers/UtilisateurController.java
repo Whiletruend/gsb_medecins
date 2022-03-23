@@ -54,16 +54,7 @@ public class UtilisateurController {
     // Return & Close buttons
     @FXML
     private void connectBackButtonClicked(ActionEvent event) throws IOException {
-        Parent root = MainController.returnPage("views/main-view.fxml");
-        // Private Vars
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-
-        scene.setFill(Color.TRANSPARENT);
-        MainController.makeDraggable(root);
-
-        stage.setScene(scene);
-        stage.show();
+        MainController.changePage("views/main-view.fxml", event);
     }
 
     @FXML

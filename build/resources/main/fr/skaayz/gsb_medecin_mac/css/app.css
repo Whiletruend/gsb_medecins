@@ -39,6 +39,20 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);
 }
 
+.button-blue {
+    -fx-background-color: #336ccf;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);
+    -fx-text-fill: #FFFFFF;
+
+    transition-duration: 4s;
+}
+
+.button-blue:hover {
+    -fx-background-color: rgb(46, 96, 185);
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);
+    -fx-text-fill: #FFFFFF;
+}
+
 .button-transparent-onWhite {
     -fx-background-color: transparent;
 }

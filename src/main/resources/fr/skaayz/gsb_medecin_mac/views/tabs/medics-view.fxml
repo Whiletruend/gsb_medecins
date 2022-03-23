@@ -30,7 +30,7 @@
             <TableColumn id="col" fx:id="departement_id" prefWidth="150.0" text="Département">
                 <cellValueFactory><PropertyValueFactory property="departement_id" /></cellValueFactory>
             </TableColumn>
-            <TableColumn id="col" fx:id="action" prefWidth="150.0" text="Action"/>
+            <TableColumn id="col" fx:id="action" prefWidth="150.0" text=""/>
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

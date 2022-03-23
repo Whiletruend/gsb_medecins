@@ -5,17 +5,17 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="846.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.skaayz.gsb_medecin_mac.controllers.DepartementController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="846.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.skaayz.gsb_medecin_mac.controllers.ProfilController">
    <children>
-      <TableView id="tableView" fx:id="tableView" prefHeight="557.0" prefWidth="846.0" styleClass="tableView" stylesheets="@../../css/app.css">
+      <TableView id="tableView" fx:id="tableView" prefHeight="557.0" prefWidth="846.0" styleClass="tableView" stylesheets="@../../../css/app.css">
          <columns>
             <TableColumn id="col" fx:id="id" prefWidth="75.0" text="#">
                <cellValueFactory><PropertyValueFactory property="id" /></cellValueFactory>
             </TableColumn>
-            <TableColumn id="col" fx:id="libelle" prefWidth="142.0" text="Nom du département">
+            <TableColumn id="col" fx:id="libelle" prefWidth="142.0" text="Nom du profil">
                <cellValueFactory><PropertyValueFactory property="libelle" /></cellValueFactory>
             </TableColumn>
-            <TableColumn id="col" fx:id="pays_id" prefWidth="142.0" text="Nom du pays">
+            <TableColumn id="col" fx:id="pays_id" prefWidth="142.0" text="Prénom du pays">
                <cellValueFactory><PropertyValueFactory property="pays_id" /></cellValueFactory>
             </TableColumn>
             <TableColumn id="col" fx:id="action" prefWidth="150.0" text=""/>
