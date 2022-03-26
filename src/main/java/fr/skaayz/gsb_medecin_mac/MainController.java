@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -15,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Node;
 
 import javafx.event.ActionEvent;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -41,6 +43,25 @@ public class MainController implements Initializable {
         return FXMLLoader.load(Objects.requireNonNull(MainController.class.getResource("" + page + "")));
     }
 
+    public static void setupFrame(Stage stage, Scene scene, Pane scene_window) {
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.initStyle(StageStyle.TRANSPARENT);
+        scene.setFill(Color.TRANSPARENT);
+
+        // Make draggable
+        scene_window.setOnMousePressed(event1 -> {
+            xOffset = event1.getSceneX();
+            yOffset = event1.getSceneY();
+        });
+
+        scene_window.setOnMouseDragged(event1 -> {
+            stage.setX(event1.getScreenX() - xOffset);
+            stage.setY(event1.getScreenY() - yOffset);
+        });
+
+        stage.setResizable(false);
+    }
+
     public static void makeDraggable(Parent root) {
         // Drag Frame
         root.setOnMousePressed(event -> {
@@ -55,7 +76,7 @@ public class MainController implements Initializable {
     }
 
     public static void changePage(String page, ActionEvent event) throws IOException {
-        setIsOnSoftware(page == "views/app-view.fxml");
+        setIsOnSoftware(Objects.equals(page, "views/app-view.fxml"));
 
         Parent root = returnPage(page);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();

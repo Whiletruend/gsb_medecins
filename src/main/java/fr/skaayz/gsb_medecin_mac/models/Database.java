@@ -33,34 +33,4 @@ public class Database {
 
         return queryOutput;
     }
-
-
-
-    /*
-    protected static function query($statement) : object {
-            $stat = self::getPDO()->query($statement);
-
-            return $stat;
-        }
-
-        protected static function prepare($statement, $attributes) : array {
-            $stat = self::getPDO()->prepare($statement);
-            $stat->execute($attributes);
-
-            return $stat->fetchAll();
-        }
-
-        protected static function prepareFetch($statement, $attributes) : object {
-            $stat = self::getPDO()->prepare($statement);
-            $stat->execute($attributes);
-
-            return $stat->fetch();
-        }
-
-        protected static function request($statement, $attributes) : void {
-            $stat = self::getPDO()->prepare($statement);
-
-            $stat->execute($attributes);
-        }
-     */
 }

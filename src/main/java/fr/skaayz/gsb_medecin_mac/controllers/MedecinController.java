@@ -5,10 +5,14 @@ import fr.skaayz.gsb_medecin_mac.models.Medecin;
 import fr.skaayz.gsb_medecin_mac.models.MedecinAccess;
 import fr.skaayz.gsb_medecin_mac.models.Utilisateur;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.io.IOException;
@@ -37,10 +41,10 @@ public class MedecinController implements Initializable {
         adresse.setCellValueFactory(new PropertyValueFactory<>("adresse"));
         tel.setCellValueFactory(new PropertyValueFactory<>("tel"));
 
-        if(!Utilisateur.isConnected()) {
+        if (!Utilisateur.isConnected()) {
             adresse.setVisible(false);
             tel.setVisible(false);
-            action.setVisible(false);
+            //action.setVisible(false);
         }
 
         specialite.setCellValueFactory(new PropertyValueFactory<>("specialite"));
@@ -63,7 +67,25 @@ public class MedecinController implements Initializable {
                     soft_view_button.setOnAction(event -> {
                         Medecin medecin = getTableView().getItems().get(getIndex());
 
-                        //System.out.println("Clicked on: " + medecin.getNom() + " " + medecin.getPrenom());
+                        // Create new stage
+                        Stage stage = new Stage();
+                        Pane scene_window = null;
+                        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fr/skaayz/gsb_medecin_mac/views/main-view.fxml"));
+
+                        try {
+                            scene_window = loader.load();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+                        // Set Scene
+                        assert scene_window != null; // scene_window might be null, so assert
+                        Scene scene = new Scene(scene_window);
+                        stage.setScene(scene);
+
+                        MainController.setupFrame(stage, scene, scene_window);
+
+                        stage.show();
                     });
 
                     setGraphic(soft_view_button);

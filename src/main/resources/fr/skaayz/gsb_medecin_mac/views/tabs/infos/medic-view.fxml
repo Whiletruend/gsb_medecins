@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="846.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.skaayz.gsb_medecin_mac.controllers.ProfilController">
-   <children>
-      <TableView id="tableView" fx:id="tableView" prefHeight="557.0" prefWidth="846.0" styleClass="tableView" stylesheets="@../../../css/app.css">
-         <columns>
-            <TableColumn id="col" fx:id="id" prefWidth="75.0" text="#">
-               <cellValueFactory><PropertyValueFactory property="id" /></cellValueFactory>
-            </TableColumn>
-            <TableColumn id="col" fx:id="libelle" prefWidth="142.0" text="Nom du profil">
-               <cellValueFactory><PropertyValueFactory property="libelle" /></cellValueFactory>
-            </TableColumn>
-            <TableColumn id="col" fx:id="pays_id" prefWidth="142.0" text="Prénom du pays">
-               <cellValueFactory><PropertyValueFactory property="pays_id" /></cellValueFactory>
-            </TableColumn>
-            <TableColumn id="col" fx:id="action" prefWidth="150.0" text=""/>
-         </columns>
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
-      </TableView>
-   </children>
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="846.0"
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fr.skaayz.gsb_medecin_mac.controllers.ProfilController">
+   <Label layoutX="21.0" layoutY="325.0" mouseTransparent="true" styleClass="nunito-regular"
+          text="Bienvenue sur l'app" textAlignment="JUSTIFY" textFill="#fdfeff">
+      <font>
+         <Font name="Inconsolata" size="28.0"/>
+      </font>
+   </Label>
+   <Label layoutX="21.0" layoutY="355.0" mouseTransparent="true" styleClass="nunito-bold"
+          text="Galaxy Swiss Bourdin !" textAlignment="JUSTIFY" textFill="#fdfeff">
+      <font>
+         <Font name="Arial" size="28.0"/>
+      </font>
+   </Label>
+   <Label alignment="TOP_LEFT" layoutX="21.0" layoutY="393.0" mouseTransparent="true" prefHeight="116.0"
+          prefWidth="348.0" styleClass="nunito-light"
+          text="Voici la nouvelle application de GSB vous permettant de visualiser les différents médecins répertoriés. Vous pourrez ainsi voir leurs prénom, nom, adresse, numéro de téléphone, spécialité et département de ceux-ci."
+          textAlignment="JUSTIFY" textFill="#e6e6e6" wrapText="true">
+      <font>
+         <Font name="Arial" size="14.0"/>
+      </font>
+   </Label>
 </AnchorPane>
