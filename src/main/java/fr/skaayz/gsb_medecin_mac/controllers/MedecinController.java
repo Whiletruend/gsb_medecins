@@ -20,6 +20,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MedecinController implements Initializable {
+    // FXML variables
     @FXML
     public TableView<Medecin> tableView;
 
@@ -32,6 +33,7 @@ public class MedecinController implements Initializable {
     @FXML
     public TableColumn<Medecin, String> action;
 
+    // Regular functions
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -65,12 +67,13 @@ public class MedecinController implements Initializable {
                     soft_view_button.setCursor(Cursor.HAND);
 
                     soft_view_button.setOnAction(event -> {
-                        Medecin medecin = getTableView().getItems().get(getIndex());
+                        Medecin medecinClicked = getTableView().getItems().get(getIndex());
+                        MedecinViewController.setMedecinActuel(medecinClicked); // Set the actual medecin
 
                         // Create new stage
                         Stage stage = new Stage();
                         Pane scene_window = null;
-                        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fr/skaayz/gsb_medecin_mac/views/main-view.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fr/skaayz/gsb_medecin_mac/views/tabs/infos/medic-view.fxml"));
 
                         try {
                             scene_window = loader.load();
@@ -83,7 +86,7 @@ public class MedecinController implements Initializable {
                         Scene scene = new Scene(scene_window);
                         stage.setScene(scene);
 
-                        MainController.setupFrame(stage, scene, scene_window);
+                        MainController.setupFrame(stage, scene, scene_window, true);
 
                         stage.show();
                     });

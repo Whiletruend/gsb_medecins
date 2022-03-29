@@ -33,4 +33,11 @@ public class Database {
 
         return queryOutput;
     }
+
+    protected static void execute(String request) throws SQLException {
+        Connection connect_db = getConnection();
+        Statement statement = connect_db.createStatement();
+
+        statement.execute(request);
+    }
 }

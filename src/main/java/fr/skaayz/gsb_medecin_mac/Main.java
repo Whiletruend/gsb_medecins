@@ -35,6 +35,8 @@ public class Main extends Application {
             stage.setY(event.getScreenY() - yOffset);
         });
 
+        stage.setTitle("GSB - Médecins");
+
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();

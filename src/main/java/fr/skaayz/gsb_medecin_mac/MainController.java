@@ -43,21 +43,23 @@ public class MainController implements Initializable {
         return FXMLLoader.load(Objects.requireNonNull(MainController.class.getResource("" + page + "")));
     }
 
-    public static void setupFrame(Stage stage, Scene scene, Pane scene_window) {
+    public static void setupFrame(Stage stage, Scene scene, Pane scene_window, boolean isStatic) {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
 
         // Make draggable
-        scene_window.setOnMousePressed(event1 -> {
-            xOffset = event1.getSceneX();
-            yOffset = event1.getSceneY();
-        });
+        if(!isStatic) {
+            scene_window.setOnMousePressed(event1 -> {
+                xOffset = event1.getSceneX();
+                yOffset = event1.getSceneY();
+            });
 
-        scene_window.setOnMouseDragged(event1 -> {
-            stage.setX(event1.getScreenX() - xOffset);
-            stage.setY(event1.getScreenY() - yOffset);
-        });
+            scene_window.setOnMouseDragged(event1 -> {
+                stage.setX(event1.getScreenX() - xOffset);
+                stage.setY(event1.getScreenY() - yOffset);
+            });
+        }
 
         stage.setResizable(false);
     }

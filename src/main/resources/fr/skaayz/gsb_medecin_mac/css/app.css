@@ -81,6 +81,36 @@
     -fx-font-family: 'Nunito Bold', sans-serif;
 }
 
+.button-delete {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: 'Nunito Bold', sans-serif;
+    -fx-font-size: 13px;
+
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);
+}
+
+.button-delete:hover {
+    -fx-background-color: #c0392b;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: 'Nunito Bold', sans-serif;
+}
+
+.button-validate {
+    -fx-background-color: #2ecc71;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: 'Nunito Bold', sans-serif;
+    -fx-font-size: 13px;
+
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);
+}
+
+.button-validate:hover {
+    -fx-background-color: #27ae60;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: 'Nunito Bold', sans-serif;
+}
+
 .button-soft {
     -fx-background-color: transparent;
     -fx-text-fill: #96aabe;

@@ -56,4 +56,30 @@ public class MedecinAccess extends Database {
 
         return medecin;
     }
+
+    public static void deleteMedecinByID(int id) {
+        try {
+            Database.execute("DELETE FROM medecin WHERE id = " + id + ";");
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateMedecinByID(int id, String[] table) {
+        try {
+            Database.execute(
+        "UPDATE medecin " +
+                "SET nom = '" + table[1] + "', " +
+                "prenom = '" + table[2] + "', " +
+                "adresse = '" + table[3] + "', " +
+                "tel = '" + table[4] + "', " +
+                "specialite = '" + table[5] + "', " +
+                "departement_id = " + table[6] + " " +
+                "WHERE id = " + id + ";"
+            );
+            //Database.execute("UPDATE medecin SET nom = " + unMedecin.getNom() + ", prenom = " + unMedecin.getPrenom() WHERE id = " + unMedecin.getId() + ";");
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
