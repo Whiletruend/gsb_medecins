@@ -43,14 +43,15 @@
     -fx-background-color: #336ccf;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);
     -fx-text-fill: #FFFFFF;
-
-    transition-duration: 4s;
+    -fx-font-family: 'Nunito Bold', sans-serif;
 }
 
 .button-blue:hover {
     -fx-background-color: rgb(46, 96, 185);
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);
     -fx-text-fill: #FFFFFF;
+
+    -fx-font-family: 'Nunito Bold', sans-serif;
 }
 
 .button-transparent-onWhite {
@@ -77,6 +78,36 @@
 
 .button-disconnect:hover {
     -fx-background-color: #c0392b;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: 'Nunito Bold', sans-serif;
+}
+
+.button-delete {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: 'Nunito Bold', sans-serif;
+    -fx-font-size: 13px;
+
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);
+}
+
+.button-delete:hover {
+    -fx-background-color: #c0392b;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: 'Nunito Bold', sans-serif;
+}
+
+.button-validate {
+    -fx-background-color: #2ecc71;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: 'Nunito Bold', sans-serif;
+    -fx-font-size: 13px;
+
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);
+}
+
+.button-validate:hover {
+    -fx-background-color: #27ae60;
     -fx-text-fill: #FFFFFF;
     -fx-font-family: 'Nunito Bold', sans-serif;
 }

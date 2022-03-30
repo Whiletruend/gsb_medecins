@@ -1,4 +1,4 @@
-package fr.skaayz.gsb_medecin_mac.controllers;
+package fr.skaayz.gsb_medecin_mac.controllers.medecins;
 
 import fr.skaayz.gsb_medecin_mac.models.Medecin;
 import fr.skaayz.gsb_medecin_mac.models.MedecinAccess;
@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class MedecinViewController implements Initializable {
+public class EditController implements Initializable {
     // Variables
     private static Medecin medecinActuel = null;
 
@@ -50,11 +50,11 @@ public class MedecinViewController implements Initializable {
     private TextField medic_textfield_department;
 
     @FXML
-    private Button profil_close_button;
+    private Button medic_close_button;
 
     @FXML
     private void closeButtonClicked() {
-        Stage stage = (Stage) profil_close_button.getScene().getWindow();
+        Stage stage = (Stage) medic_close_button.getScene().getWindow();
         stage.close();
     }
 
@@ -64,18 +64,21 @@ public class MedecinViewController implements Initializable {
         alert.showAndWait();
 
         if (alert.getResult() == ButtonType.YES) {
-            MedecinAccess.deleteMedecinByID(getMedecinActuel().getId());
+            MedecinAccess.deleteMedicByID(getMedecinActuel().getId());
             closeButtonClicked();
         }
+
+        // Update tableview
+        //MedecinController.getInstance().setupTableView(MedecinAccess.getAll());
     }
 
     @FXML
     private void validateButtonClicked() {
         if( (!Objects.equals(medic_textfield_firstname.getText(), getMedecinActuel().getNom())) || (!Objects.equals(medic_textfield_lastname.getText(), getMedecinActuel().getPrenom())) || (!Objects.equals(medic_textfield_address.getText(), getMedecinActuel().getAdresse())) || (!Objects.equals(medic_textfield_phone.getText(), getMedecinActuel().getTel())) || (!Objects.equals(medic_textfield_speciality.getText(), getMedecinActuel().getSpecialite())) || (!Objects.equals(medic_textfield_department.getText(), Integer.toString(getMedecinActuel().getDepartement_id())))) {
-            // Create informations table
+            // Create infos table
             String[] new_informations = new String[7];
 
-            // Add informations
+            // Add infos
             new_informations[0] = medic_textfield_id.getText();
             new_informations[1] = medic_textfield_firstname.getText();
             new_informations[2] = medic_textfield_lastname.getText();
@@ -85,14 +88,17 @@ public class MedecinViewController implements Initializable {
             new_informations[6] = medic_textfield_department.getText();
 
             // Send & update
-            MedecinAccess.updateMedecinByID(getMedecinActuel().getId(), new_informations);
+            MedecinAccess.updateMedicByID(getMedecinActuel().getId(), new_informations);
 
             // Show popup
             Alert alert = new Alert(Alert.AlertType.NONE, "Les valeurs du médecin " + getMedecinActuel().getNom() + " " + getMedecinActuel().getPrenom() + " ont bien étés modifiées.", ButtonType.OK);
             alert.showAndWait();
+
+            // Reload TableView
+           // MedecinController.reload(MedecinAccess.getAll());
         }
 
-        // Close stage
+        // Close stage & update tableview
         closeButtonClicked();
     }
 

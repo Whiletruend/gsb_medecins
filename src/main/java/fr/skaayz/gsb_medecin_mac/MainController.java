@@ -168,6 +168,18 @@ public class MainController implements Initializable {
     // Init
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Integer nombre = 7;
+
+        for(Integer i = 1; i <= 4; i++) {
+            if(nombre % 3 == 0) {
+                nombre = nombre + 4;
+            } else {
+                nombre = nombre + 5;
+            }
+        }
+
+        System.out.println("NOMBRE: " + nombre);
+
         if(isOnSoftware()) {
             try {
                 loadFXML("views/tabs/home-view.fxml");

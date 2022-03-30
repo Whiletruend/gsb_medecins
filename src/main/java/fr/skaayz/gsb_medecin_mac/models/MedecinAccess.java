@@ -57,7 +57,33 @@ public class MedecinAccess extends Database {
         return medecin;
     }
 
-    public static void deleteMedecinByID(int id) {
+    public static ObservableList<Medecin> getByLike(String search) {
+        ObservableList<Medecin> medecins_List = FXCollections.observableArrayList();
+
+        try {
+            ResultSet request = Database.query("SELECT * FROM medecin WHERE nom LIKE '%" + search + "%' OR prenom LIKE '%" + search + "%' OR specialite LIKE '%" + search + "%';");
+
+            while(request.next()) {
+                medecins_List.addAll(
+                        new Medecin(
+                            request.getInt("id"),
+                            request.getString("nom"),
+                            request.getString("prenom"),
+                            request.getString("adresse"),
+                            request.getString("tel"),
+                            request.getString("specialite"),
+                            request.getInt("departement_id")
+                        )
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return medecins_List;
+    }
+
+    public static void deleteMedicByID(int id) {
         try {
             Database.execute("DELETE FROM medecin WHERE id = " + id + ";");
         } catch(SQLException e) {
@@ -65,7 +91,7 @@ public class MedecinAccess extends Database {
         }
     }
 
-    public static void updateMedecinByID(int id, String[] table) {
+    public static void updateMedicByID(int id, String[] table) {
         try {
             Database.execute(
         "UPDATE medecin " +
@@ -77,7 +103,22 @@ public class MedecinAccess extends Database {
                 "departement_id = " + table[6] + " " +
                 "WHERE id = " + id + ";"
             );
-            //Database.execute("UPDATE medecin SET nom = " + unMedecin.getNom() + ", prenom = " + unMedecin.getPrenom() WHERE id = " + unMedecin.getId() + ";");
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void createMedic(String[] table) {
+        try {
+            Database.execute(
+        "INSERT INTO medecin(nom, prenom, adresse, tel, specialite, departement_id) VALUES(" +
+                "'" + table[0] + "'," +
+                "'" + table[1] + "'," +
+                "'" + table[2] + "'," +
+                "'" + table[3] + "'," +
+                "'" + table[4] + "'," +
+                "'" + table[5] + "');"
+            );
         } catch(SQLException e) {
             e.printStackTrace();
         }

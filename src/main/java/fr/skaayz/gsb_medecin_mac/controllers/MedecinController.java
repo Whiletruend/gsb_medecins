@@ -1,9 +1,11 @@
 package fr.skaayz.gsb_medecin_mac.controllers;
 
 import fr.skaayz.gsb_medecin_mac.MainController;
+import fr.skaayz.gsb_medecin_mac.controllers.medecins.EditController;
 import fr.skaayz.gsb_medecin_mac.models.Medecin;
 import fr.skaayz.gsb_medecin_mac.models.MedecinAccess;
 import fr.skaayz.gsb_medecin_mac.models.Utilisateur;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,7 +22,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MedecinController implements Initializable {
+    // Regular variables
+
     // FXML variables
+    @FXML
+    private TextField search_textbar;
+
     @FXML
     public TableView<Medecin> tableView;
 
@@ -33,9 +40,40 @@ public class MedecinController implements Initializable {
     @FXML
     public TableColumn<Medecin, String> action;
 
+    // FXML Functions
+    @FXML
+    private void searchButtonClicked() {
+        setupTableView(MedecinAccess.getByLike(search_textbar.getText()));
+    }
+
+    @FXML
+    private void addButtonClicked() {
+        // Create new stage
+        Stage stage = new Stage();
+        Pane scene_window = null;
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fr/skaayz/gsb_medecin_mac/views/tabs/popups/adds/medic-view.fxml"));
+
+        try {
+            scene_window = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Set Scene
+        assert scene_window != null; // scene_window might be null, so assert
+        Scene scene = new Scene(scene_window);
+        stage.setScene(scene);
+
+        MainController.setupFrame(stage, scene, scene_window, true);
+
+        stage.show();
+    }
+
     // Regular functions
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    private void setupTableView(ObservableList<Medecin> medecins_list) {
+        tableView.getItems().clear();
+        tableView.refresh();
+
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
         prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
@@ -68,12 +106,12 @@ public class MedecinController implements Initializable {
 
                     soft_view_button.setOnAction(event -> {
                         Medecin medecinClicked = getTableView().getItems().get(getIndex());
-                        MedecinViewController.setMedecinActuel(medecinClicked); // Set the actual medecin
+                        EditController.setMedecinActuel(medecinClicked); // Set the actual medecin
 
                         // Create new stage
                         Stage stage = new Stage();
                         Pane scene_window = null;
-                        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fr/skaayz/gsb_medecin_mac/views/tabs/infos/medic-view.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fr/skaayz/gsb_medecin_mac/views/tabs/popups/infos/medic-view.fxml"));
 
                         try {
                             scene_window = loader.load();
@@ -100,8 +138,19 @@ public class MedecinController implements Initializable {
         // Attribute buttons to the column
         action.setCellFactory(cellFactory);
 
+        // Reload
+        reload(medecins_list);
+        tableView.setPlaceholder(new Label("Médecin(s) non trouvé(s)."));
+    }
+
+    private void reload(ObservableList<Medecin> medecins_list) {
+        tableView.getItems().clear();
         tableView.refresh();
-        tableView.getItems().addAll(MedecinAccess.getAll());
-        tableView.setPlaceholder(new Label("Médecins non chargés."));
+        tableView.getItems().addAll(medecins_list);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        setupTableView(MedecinAccess.getAll());
     }
 }

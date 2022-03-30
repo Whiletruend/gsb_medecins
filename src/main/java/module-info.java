@@ -11,4 +11,6 @@ module fr.skaayz.project {
 
     opens fr.skaayz.gsb_medecin_mac.controllers to javafx.fxml;
     exports fr.skaayz.gsb_medecin_mac.controllers;
+    exports fr.skaayz.gsb_medecin_mac.controllers.medecins;
+    opens fr.skaayz.gsb_medecin_mac.controllers.medecins to javafx.fxml;
 }

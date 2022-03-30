@@ -43,14 +43,15 @@
     -fx-background-color: #336ccf;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);
     -fx-text-fill: #FFFFFF;
-
-    transition-duration: 4s;
+    -fx-font-family: 'Nunito Bold', sans-serif;
 }
 
 .button-blue:hover {
     -fx-background-color: rgb(46, 96, 185);
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);
     -fx-text-fill: #FFFFFF;
+
+    -fx-font-family: 'Nunito Bold', sans-serif;
 }
 
 .button-transparent-onWhite {
