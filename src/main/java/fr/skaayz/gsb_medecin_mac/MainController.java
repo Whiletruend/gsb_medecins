@@ -96,6 +96,25 @@ public class MainController implements Initializable {
         soft_RightBorderPane.setCenter(view);
     }
 
+    public static boolean isNumeric(String string) {
+        int intValue;
+
+        System.out.println(String.format("Parsing string: \"%s\"", string));
+
+        if(string == null || string.equals("")) {
+            System.out.println("String cannot be parsed, it is null or empty.");
+            return false;
+        }
+
+        try {
+            intValue = Integer.parseInt(string);
+            return true;
+        } catch (NumberFormatException e) {
+            System.out.println("Input String cannot be parsed to Integer.");
+        }
+        return false;
+    }
+
     // FXML Functions
     @FXML
     private javafx.scene.control.Button main_close_button;
@@ -168,18 +187,6 @@ public class MainController implements Initializable {
     // Init
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Integer nombre = 7;
-
-        for(Integer i = 1; i <= 4; i++) {
-            if(nombre % 3 == 0) {
-                nombre = nombre + 4;
-            } else {
-                nombre = nombre + 5;
-            }
-        }
-
-        System.out.println("NOMBRE: " + nombre);
-
         if(isOnSoftware()) {
             try {
                 loadFXML("views/tabs/home-view.fxml");

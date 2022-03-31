@@ -27,7 +27,7 @@
             <TableColumn id="col" fx:id="tel" prefWidth="106.0" text="N° Téléphone">
                 <cellValueFactory><PropertyValueFactory property="tel" /></cellValueFactory>
             </TableColumn>
-            <TableColumn id="col" fx:id="specialite" minWidth="0.0" prefWidth="223.0" text="Spécialité">
+            <TableColumn id="col" fx:id="specialite_id" minWidth="0.0" prefWidth="223.0" text="Spécialité">
                 <cellValueFactory><PropertyValueFactory property="specialite" /></cellValueFactory>
             </TableColumn>
             <TableColumn id="col" fx:id="departement_id" prefWidth="150.0" text="Département">

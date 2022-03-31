@@ -29,13 +29,16 @@ public class MedecinController implements Initializable {
     private TextField search_textbar;
 
     @FXML
+    private Button add_button;
+
+    @FXML
     public TableView<Medecin> tableView;
 
     @FXML
-    public TableColumn<Medecin, Integer> id, departement_id;
+    public TableColumn<Medecin, Integer> id, departement_id, specialite_id;
 
     @FXML
-    public TableColumn<Medecin, String> nom, prenom, adresse, tel, specialite;
+    public TableColumn<Medecin, String> nom, prenom, adresse, tel;
 
     @FXML
     public TableColumn<Medecin, String> action;
@@ -84,11 +87,20 @@ public class MedecinController implements Initializable {
         if (!Utilisateur.isConnected()) {
             adresse.setVisible(false);
             tel.setVisible(false);
-            //action.setVisible(false);
+            action.setVisible(false);
+
+            add_button.setVisible(false);
+            search_textbar.setLayoutX(-1);
+            search_textbar.setPrefWidth(710);
         }
 
-        specialite.setCellValueFactory(new PropertyValueFactory<>("specialite"));
+        specialite_id.setCellValueFactory(new PropertyValueFactory<>("specialite_id"));
         departement_id.setCellValueFactory(new PropertyValueFactory<>("departement_id"));
+
+        // Remove tabs without errors
+        id.setVisible(false);
+        specialite_id.setVisible(false);
+        departement_id.setVisible(false);
 
         // Create buttons for every rows
         Callback<TableColumn<Medecin, String>, TableCell<Medecin, String>> cellFactory = (param) -> new TableCell<>() {

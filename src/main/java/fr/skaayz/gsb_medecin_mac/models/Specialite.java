@@ -2,21 +2,21 @@ package fr.skaayz.gsb_medecin_mac.models;
 
 public class Specialite {
     // Variables
-    private int id;
+    private Integer id;
     private String libelle;
 
     // Constructor
-    public Specialite(int id, String libelle) {
+    public Specialite(Integer id, String libelle) {
         this.id = id;
         this.libelle = libelle;
     }
 
     // Functions
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

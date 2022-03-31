@@ -28,4 +28,64 @@ public class DepartementAccess extends Database {
 
         return departement_List;
     }
+
+    public static Departement getDepartementByID(int id) {
+        Departement departement = null;
+
+        try {
+            ResultSet request = Database.query("SELECT * FROM departement WHERE id = " + id + ";");
+
+            if (request.next()) {
+                departement = new Departement(
+                        request.getInt("id"),
+                        request.getString("libelle"),
+                        request.getInt("pays_id")
+                );
+            }
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+
+        return departement;
+    }
+
+    public static Departement getDepartementByLibelle(String libelle) {
+        Departement departement = null;
+
+        try {
+            ResultSet request = Database.query("SELECT * FROM departement WHERE libelle = '" + libelle + "';");
+
+            if (request.next()) {
+                departement = new Departement(
+                        request.getInt("id"),
+                        request.getString("libelle"),
+                        request.getInt("pays_id")
+                );
+            }
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+
+        return departement;
+    }
+
+    public static String getLibelleByID(int id) {
+        Departement departement = null;
+
+        try {
+            ResultSet request = Database.query("SELECT * FROM departement WHERE id = " + id + ";");
+
+            if(request.next()) {
+                departement = new Departement(
+                        request.getInt("id"),
+                        request.getString("libelle"),
+                        request.getInt("pays_id")
+                );
+            }
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+
+        return departement.getLibelle();
+    }
 }

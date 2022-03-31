@@ -27,4 +27,61 @@ public class SpecialiteAccess extends Database {
 
         return specialite_List;
     }
+
+    public static Specialite getSpecialiteByID(int id) {
+        Specialite specialite = null;
+
+        try {
+            ResultSet request = Database.query("SELECT * FROM specialite_complementaire WHERE id = " + id + ";");
+
+            if (request.next()) {
+                specialite = new Specialite(
+                    request.getInt("id"),
+                    request.getString("libelle")
+                );
+            }
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+
+        return specialite;
+    }
+
+    public static Specialite getSpecialityByLibelle(String libelle) {
+        Specialite specialite = null;
+
+        try {
+            ResultSet request = Database.query("SELECT * FROM specialite_complementaire WHERE libelle = '" + libelle + "';");
+
+            if (request.next()) {
+                specialite = new Specialite(
+                        request.getInt("id"),
+                        request.getString("libelle")
+                );
+            }
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+
+        return specialite;
+    }
+
+    public static String getLibelleByID(int id) {
+        Specialite specialite = null;
+
+        try {
+            ResultSet request = Database.query("SELECT * FROM specialite_complementaire WHERE id = " + id + ";");
+
+            if(request.next()) {
+                specialite = new Specialite(
+                        request.getInt("id"),
+                        request.getString("libelle")
+                );
+            }
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+
+        return specialite.getLibelle();
+    }
 }

@@ -2,6 +2,7 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -45,7 +46,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField fx:id="medic_textfield_speciality" layoutX="27.0" layoutY="329.0" prefHeight="34.0" prefWidth="544.0" style="-fx-font-size: 16;" styleClass="nunito-regular" stylesheets="@../../../../css/app.css" text="medic_speciality" />
-      <TextField fx:id="medic_textfield_department" layoutX="27.0" layoutY="372.0" prefHeight="34.0" prefWidth="544.0" style="-fx-font-size: 16;" styleClass="nunito-regular" stylesheets="@../../../../css/app.css" text="medic_department" />
+      <ComboBox fx:id="medic_choice_speciality" layoutX="27.0" layoutY="329.0" prefHeight="34.0" prefWidth="544.0" style="-fx-font-size: 16;" styleClass="nunito-regular" stylesheets="@../../../../css/app.css" />
+      <ComboBox fx:id="medic_choice_department" layoutX="27.0" layoutY="371.0" prefHeight="34.0" prefWidth="544.0" style="-fx-font-size: 16;" styleClass="nunito-regular" stylesheets="@../../../../css/app.css" />
    </children>
 </AnchorPane>

@@ -41,6 +41,6 @@
             </cursor>
         </Button>
       <ComboBox fx:id="medic_choice_speciality" layoutX="27.0" layoutY="287.0" prefHeight="34.0" prefWidth="544.0" promptText="Choisir une spécialité.." style="-fx-font-size: 16;" styleClass="nunito-regular" stylesheets="@../../../../css/app.css" />
-      <ComboBox fx:id="medic_choice_departement" layoutX="27.0" layoutY="329.0" prefHeight="34.0" prefWidth="544.0" promptText="Choisir un département.." style="-fx-font-size: 16;" styleClass="nunito-regular" stylesheets="@../../../../css/app.css" />
+      <ComboBox fx:id="medic_choice_department" layoutX="27.0" layoutY="329.0" prefHeight="34.0" prefWidth="544.0" promptText="Choisir un département.." style="-fx-font-size: 16;" styleClass="nunito-regular" stylesheets="@../../../../css/app.css" />
     </children>
 </AnchorPane>

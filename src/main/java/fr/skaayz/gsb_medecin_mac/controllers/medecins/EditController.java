@@ -1,13 +1,11 @@
 package fr.skaayz.gsb_medecin_mac.controllers.medecins;
 
-import fr.skaayz.gsb_medecin_mac.models.Medecin;
-import fr.skaayz.gsb_medecin_mac.models.MedecinAccess;
+import fr.skaayz.gsb_medecin_mac.MainController;
+import fr.skaayz.gsb_medecin_mac.models.*;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -17,6 +15,8 @@ import java.util.ResourceBundle;
 public class EditController implements Initializable {
     // Variables
     private static Medecin medecinActuel = null;
+    private static Integer valueSpecialite = 0;
+    private static Integer valueDepartement = 0;
 
     // Regular Functions
     public static void setMedecinActuel(Medecin nouveauMedecin) {
@@ -44,10 +44,10 @@ public class EditController implements Initializable {
     private TextField medic_textfield_phone;
 
     @FXML
-    private TextField medic_textfield_speciality;
+    private ComboBox<String> medic_choice_speciality;
 
     @FXML
-    private TextField medic_textfield_department;
+    private ComboBox<String> medic_choice_department;
 
     @FXML
     private Button medic_close_button;
@@ -67,14 +67,27 @@ public class EditController implements Initializable {
             MedecinAccess.deleteMedicByID(getMedecinActuel().getId());
             closeButtonClicked();
         }
-
-        // Update tableview
-        //MedecinController.getInstance().setupTableView(MedecinAccess.getAll());
     }
 
     @FXML
     private void validateButtonClicked() {
-        if( (!Objects.equals(medic_textfield_firstname.getText(), getMedecinActuel().getNom())) || (!Objects.equals(medic_textfield_lastname.getText(), getMedecinActuel().getPrenom())) || (!Objects.equals(medic_textfield_address.getText(), getMedecinActuel().getAdresse())) || (!Objects.equals(medic_textfield_phone.getText(), getMedecinActuel().getTel())) || (!Objects.equals(medic_textfield_speciality.getText(), getMedecinActuel().getSpecialite())) || (!Objects.equals(medic_textfield_department.getText(), Integer.toString(getMedecinActuel().getDepartement_id())))) {
+        if( (!Objects.equals(medic_textfield_firstname.getText(), getMedecinActuel().getNom())) || (!Objects.equals(medic_textfield_lastname.getText(), getMedecinActuel().getPrenom())) || (!Objects.equals(medic_textfield_address.getText(), getMedecinActuel().getAdresse())) || (!Objects.equals(medic_textfield_phone.getText(), getMedecinActuel().getTel())) || (!Objects.equals(medic_choice_speciality.getValue(), getMedecinActuel().getSpecialite_id())) || (!Objects.equals(medic_choice_speciality.getValue(), Integer.toString(getMedecinActuel().getDepartement_id())))) {
+            if(medic_textfield_firstname.getText().trim().isEmpty() || medic_textfield_lastname.getText().trim().isEmpty() || medic_textfield_address.getText().trim().isEmpty() || medic_textfield_phone.getText().trim().isEmpty()) {
+                // Show popup
+                Alert alert = new Alert(Alert.AlertType.NONE, "Tous les champs doivent être remplis.", ButtonType.OK);
+                alert.showAndWait();
+
+                return;
+            }
+
+            if(!MainController.isNumeric(medic_textfield_phone.getText())) {
+                // Show popup
+                Alert alert = new Alert(Alert.AlertType.NONE, "Le numéro de téléphone doit comporter des chiffres", ButtonType.OK);
+                alert.showAndWait();
+
+                return;
+            }
+
             // Create infos table
             String[] new_informations = new String[7];
 
@@ -84,8 +97,8 @@ public class EditController implements Initializable {
             new_informations[2] = medic_textfield_lastname.getText();
             new_informations[3] = medic_textfield_address.getText();
             new_informations[4] = medic_textfield_phone.getText();
-            new_informations[5] = medic_textfield_speciality.getText();
-            new_informations[6] = medic_textfield_department.getText();
+            new_informations[5] = String.valueOf(medic_choice_speciality.getValue());
+            new_informations[6] = String.valueOf(medic_choice_department.getValue());
 
             // Send & update
             MedecinAccess.updateMedicByID(getMedecinActuel().getId(), new_informations);
@@ -93,9 +106,6 @@ public class EditController implements Initializable {
             // Show popup
             Alert alert = new Alert(Alert.AlertType.NONE, "Les valeurs du médecin " + getMedecinActuel().getNom() + " " + getMedecinActuel().getPrenom() + " ont bien étés modifiées.", ButtonType.OK);
             alert.showAndWait();
-
-            // Reload TableView
-           // MedecinController.reload(MedecinAccess.getAll());
         }
 
         // Close stage & update tableview
@@ -104,12 +114,25 @@ public class EditController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        // Variables
+        ObservableList<Specialite> specialite_List = SpecialiteAccess.getAll();
+        ObservableList<Departement> departement_List = DepartementAccess.getAll();
+
+        // Setup
+        for (Specialite spe : specialite_List) {
+            medic_choice_speciality.getItems().add(spe.getLibelle());
+        }
+
+        for (Departement dpt : departement_List) {
+            medic_choice_department.getItems().add(dpt.getLibelle());
+        }
+
         medic_textfield_id.setText(Integer.toString(getMedecinActuel().getId()));
         medic_textfield_firstname.setText(getMedecinActuel().getNom());
         medic_textfield_lastname.setText(getMedecinActuel().getPrenom());
         medic_textfield_address.setText(getMedecinActuel().getAdresse());
         medic_textfield_phone.setText(getMedecinActuel().getTel());
-        medic_textfield_speciality.setText(getMedecinActuel().getSpecialite());
-        medic_textfield_department.setText(Integer.toString(getMedecinActuel().getDepartement_id()));
+        medic_choice_speciality.setValue(SpecialiteAccess.getLibelleByID(getMedecinActuel().getSpecialite_id()));
+        medic_choice_department.setValue(DepartementAccess.getLibelleByID(getMedecinActuel().getDepartement_id()));
     }
 }
