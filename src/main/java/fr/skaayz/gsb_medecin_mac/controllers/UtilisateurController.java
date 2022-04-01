@@ -11,6 +11,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class UtilisateurController {
     @FXML
@@ -25,7 +28,7 @@ public class UtilisateurController {
     @FXML
     private Label connect_Infos;
 
-    // When connect button is clicked
+    // FXML Functions
     @FXML
     private void connectButtonClicked(ActionEvent event) throws IOException {
         if(connect_username.getText().trim().isEmpty() || connect_password.getText().trim().isEmpty()) {
@@ -33,7 +36,7 @@ public class UtilisateurController {
             connect_Infos.setText("Tous les champs doivent être complétés");
         } else {
             String username = connect_username.getText();
-            String password = connect_password.getText();
+            String password = encryptToSHA512(connect_password.getText(), "gsb_medecins");
 
             Utilisateur user = UtilisateurAccess.getUtilisateur(username, password);
 
@@ -47,7 +50,6 @@ public class UtilisateurController {
         }
     }
 
-    // Return & Close buttons
     @FXML
     private void connectBackButtonClicked(ActionEvent event) throws IOException {
         MainController.changePage("views/main-view.fxml", event);
@@ -57,5 +59,23 @@ public class UtilisateurController {
     private void closeButtonClicked(){
         Stage stage = (Stage) main_close_button.getScene().getWindow();
         stage.close();
+    }
+
+    // Regular Functions
+    public String encryptToSHA512(String passwordToHash, String salt){
+        String generatedPassword = null;
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-512");
+            md.update(salt.getBytes(StandardCharsets.UTF_8));
+            byte[] bytes = md.digest(passwordToHash.getBytes(StandardCharsets.UTF_8));
+            StringBuilder sb = new StringBuilder();
+            for (byte aByte : bytes) {
+                sb.append(Integer.toString((aByte & 0xff) + 0x100, 16).substring(1));
+            }
+            generatedPassword = sb.toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return generatedPassword;
     }
 }
