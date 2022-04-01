@@ -15,8 +15,6 @@ import java.util.ResourceBundle;
 public class EditController implements Initializable {
     // Variables
     private static Medecin medecinActuel = null;
-    private static Integer valueSpecialite = 0;
-    private static Integer valueDepartement = 0;
 
     // Regular Functions
     public static void setMedecinActuel(Medecin nouveauMedecin) {
@@ -75,6 +73,22 @@ public class EditController implements Initializable {
             if(medic_textfield_firstname.getText().trim().isEmpty() || medic_textfield_lastname.getText().trim().isEmpty() || medic_textfield_address.getText().trim().isEmpty() || medic_textfield_phone.getText().trim().isEmpty()) {
                 // Show popup
                 Alert alert = new Alert(Alert.AlertType.NONE, "Tous les champs doivent être remplis.", ButtonType.OK);
+                alert.showAndWait();
+
+                return;
+            }
+
+            if( (medic_textfield_firstname.getText()).matches(".*\\d.*") ) {
+                // Show popup
+                Alert alert = new Alert(Alert.AlertType.NONE, "Le nom d'un médecin ne peut être numérique.", ButtonType.OK);
+                alert.showAndWait();
+
+                return;
+            }
+
+            if( (medic_textfield_lastname.getText()).matches(".*\\d.*") ) {
+                // Show popup
+                Alert alert = new Alert(Alert.AlertType.NONE, "Le prénom d'un médecin ne peut être numérique.", ButtonType.OK);
                 alert.showAndWait();
 
                 return;

@@ -1,28 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="846.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.skaayz.gsb_medecin_mac.controllers.medecins.EditController">
-   <children>
-      <TableView id="tableView" fx:id="tableView" prefHeight="557.0" prefWidth="846.0" styleClass="tableView" stylesheets="@../../../../css/app.css">
-         <columns>
-            <TableColumn id="col" fx:id="id" prefWidth="75.0" text="#">
-               <cellValueFactory><PropertyValueFactory property="id" /></cellValueFactory>
-            </TableColumn>
-            <TableColumn id="col" fx:id="libelle" prefWidth="142.0" text="Nom du profil">
-               <cellValueFactory><PropertyValueFactory property="libelle" /></cellValueFactory>
-            </TableColumn>
-            <TableColumn id="col" fx:id="pays_id" prefWidth="142.0" text="Prénom du pays">
-               <cellValueFactory><PropertyValueFactory property="pays_id" /></cellValueFactory>
-            </TableColumn>
-            <TableColumn id="col" fx:id="action" prefWidth="150.0" text=""/>
-         </columns>
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
-      </TableView>
-   </children>
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="325.0" prefWidth="598.0"
+            style="-fx-background-radius: 10; -fx-background-color: #EEEEEEFF;" xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fr.skaayz.gsb_medecin_mac.controllers.departements.EditController">
+   <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="89.0" prefWidth="598.0"
+               style="-fx-background-radius: 0; -fx-background-color: #336ccf;">
+      <Label layoutX="25.0" layoutY="25.0" style="-fx-font-size: 28;" styleClass="nunito-bold"
+             stylesheets="@../../../../css/app.css" text="Fiche d'information du département" textFill="WHITE"/>
+      <Button fx:id="depart_close_button" layoutX="516.0" layoutY="16.0" mnemonicParsing="false"
+              onAction="#closeButtonClicked" styleClass="button-transparent" stylesheets="@../../../../css/app.css">
+         <graphic>
+            <ImageView fitHeight="46.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND"/>
+               </cursor>
+               <Image url="@../../../../assets/icons/close.png"/>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND"/>
+         </cursor>
+      </Button>
+   </AnchorPane>
+   <TextField fx:id="depart_textfield_id" disable="true" layoutX="27.0" layoutY="115.0" prefHeight="34.0"
+              prefWidth="544.0" style="-fx-font-size: 16;" styleClass="nunito-regular"
+              stylesheets="@../../../../css/app.css" text="depart_identifier"/>
+   <TextField fx:id="depart_textfield_libelle" layoutX="27.0" layoutY="158.0" prefHeight="34.0" prefWidth="544.0"
+              style="-fx-font-size: 16;" styleClass="nunito-regular" stylesheets="@../../../../css/app.css"
+              text="depart_libelle"/>
+   <Button layoutX="27.0" layoutY="245.0" mnemonicParsing="false" onAction="#deleteButtonClicked" prefHeight="53.0"
+           prefWidth="234.0" styleClass="button-delete" stylesheets="@../../../../css/app.css" text="Supprimer">
+      <cursor>
+         <Cursor fx:constant="HAND"/>
+      </cursor>
+   </Button>
+   <Button layoutX="337.0" layoutY="245.0" mnemonicParsing="false" onAction="#validateButtonClicked" prefHeight="53.0"
+           prefWidth="234.0" styleClass="button-validate" stylesheets="@../../../../css/app.css" text="Valider">
+      <cursor>
+         <Cursor fx:constant="HAND"/>
+      </cursor>
+   </Button>
+   <ComboBox fx:id="depart_choice_country" layoutX="27.0" layoutY="201.0" prefHeight="34.0" prefWidth="544.0"
+             style="-fx-font-size: 16;" styleClass="nunito-regular" stylesheets="@../../../../css/app.css"/>
 </AnchorPane>

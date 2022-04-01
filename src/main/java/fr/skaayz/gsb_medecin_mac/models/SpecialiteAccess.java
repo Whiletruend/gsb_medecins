@@ -82,6 +82,7 @@ public class SpecialiteAccess extends Database {
             e.printStackTrace();
         }
 
+        assert specialite != null;
         return specialite.getLibelle();
     }
 }

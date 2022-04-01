@@ -3,7 +3,6 @@ package fr.skaayz.gsb_medecin_mac.models;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import javax.xml.transform.Result;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -40,7 +39,7 @@ public class MedecinAccess extends Database {
         try {
             ResultSet request = Database.query("SELECT * FROM medecin WHERE id = " + id + ";");
 
-            if (request.next()) {
+            if(request.next()) {
                 medecin = new Medecin(
                     request.getInt("id"),
                     request.getString("nom"),
@@ -62,7 +61,6 @@ public class MedecinAccess extends Database {
         ObservableList<Medecin> medecins_List = FXCollections.observableArrayList();
 
         try {
-           // ResultSet request = Database.query("SELECT * FROM medecin JOIN specialite_complementaire WHERE nom LIKE '%" + search + "%' OR prenom LIKE '%" + search + "%' OR libelle LIKE '%" + search + "%';");
             ResultSet request = Database.query(
         "SELECT * FROM medecin AS M " +
                 "JOIN specialite_complementaire sc on M.specialite_id = sc.id " +

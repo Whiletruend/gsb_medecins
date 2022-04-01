@@ -55,6 +55,22 @@ public class AddController implements Initializable {
             return;
         }
 
+        if( (medic_textfield_firstname.getText()).matches(".*\\d.*") ) {
+            // Show popup
+            Alert alert = new Alert(Alert.AlertType.NONE, "Le nom d'un médecin ne peut être numérique.", ButtonType.OK);
+            alert.showAndWait();
+
+            return;
+        }
+
+        if( (medic_textfield_lastname.getText()).matches(".*\\d.*") ) {
+            // Show popup
+            Alert alert = new Alert(Alert.AlertType.NONE, "Le prénom d'un médecin ne peut être numérique.", ButtonType.OK);
+            alert.showAndWait();
+
+            return;
+        }
+
         if(!MainController.isNumeric(medic_textfield_phone.getText())) {
             // Show popup
             Alert alert = new Alert(Alert.AlertType.NONE, "Le numéro de téléphone doit comporter des chiffres", ButtonType.OK);

@@ -13,112 +13,125 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="main_app_frame" prefHeight="683.0" prefWidth="1135.0" style="-fx-background-color: F9F9F9; -fx-background-radius: 10; -fx-font-size: 22px;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.skaayz.gsb_medecin_mac.MainController">
-   <children>
-      <VBox prefHeight="92.0" prefWidth="1135.0">
-         <children>
-            <Pane fx:id="soft_navbar" prefHeight="91.0" prefWidth="1135.0" style="-fx-background-color: ffffff; -fx-background-radius: 10;">
-               <children>
-                  <Button fx:id="soft_back_button" layoutX="-71.0" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#softBackButtonClicked" prefHeight="60.0" prefWidth="267.0" style="-fx-font-size: 16;" stylesheets="@../css/app.css" text="RETOUR" textFill="#5584e6">
-                     <graphic>
-                        <ImageView fitHeight="60.0" fitWidth="197.0" pickOnBounds="true" preserveRatio="true" styleClass="button-transparent-onWhite">
-                           <image>
-                              <Image url="@../assets/icons/arrow_left_blue.png" />
-                           </image>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </ImageView>
-                     </graphic>
-                     <styleClass>
-                        <String fx:value="button-transparent-onWhite" />
-                        <String fx:value="nunito-bold" />
-                     </styleClass>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="soft_close_button" layoutX="1055.0" layoutY="15.0" mnemonicParsing="false" onAction="#softCloseButtonClicked" prefHeight="60.0" prefWidth="50.0" stylesheets="@../css/app.css" textFill="#5584e6">
-                     <styleClass>
-                        <String fx:value="button-transparent-onWhite" />
-                        <String fx:value="nunito-bold" />
-                     </styleClass>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <graphic>
-                        <ImageView fitHeight="60.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" styleClass="button-transparent-onWhite">
-                           <image>
-                              <Image url="@../assets/icons/close_blue.png" />
-                           </image>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </ImageView>
-                     </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="soft_countries_button" layoutX="487.0" mnemonicParsing="false" onAction="#softCountriesButtonClicked" prefHeight="91.0" prefWidth="178.0" styleClass="button-soft" stylesheets="@../css/app.css" text="Pays">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="soft_departs_button" layoutX="666.0" mnemonicParsing="false" onAction="#softDepartsButtonClicked" prefHeight="91.0" prefWidth="178.0" styleClass="button-soft" stylesheets="@../css/app.css" text="Départements">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="soft_medics_button" layoutX="845.0" mnemonicParsing="false" onAction="#softMedicsButtonClicked" prefHeight="91.0" prefWidth="178.0" styleClass="button-soft" stylesheets="@../css/app.css" text="Médecins">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="soft_home_button" layoutX="310.0" mnemonicParsing="false" onAction="#softHomeButtonClicked" prefHeight="91.0" prefWidth="178.0" styleClass="button-soft" stylesheets="@../css/app.css" text="Accueil">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-               </children>
-            </Pane>
-         </children>
-      </VBox>
-      <Pane layoutX="14.0" layoutY="107.0" prefHeight="559.0" prefWidth="250.0" style="-fx-background-color: #5584e6; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="soft_disconnect_button" layoutX="29.0" layoutY="495.0" mnemonicParsing="false" onAction="#softDisconnectButtonClicked" prefHeight="42.0" prefWidth="185.0" style="-fx-background-radius: 5;" styleClass="button-white" stylesheets="@../css/app.css" text="Déconnexion">
-               <font>
-                  <Font size="15.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <ImageView fitHeight="524.0" fitWidth="67.0" layoutX="26.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assets/icons/user.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="soft_account_type" layoutX="30.0" layoutY="108.0" styleClass="nunito-bold" stylesheets="@../css/app.css" text="Invité" textFill="WHITE">
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Label>
-            <Label layoutX="30.0" layoutY="137.0" style="-fx-font-size: 15px;" styleClass="nunito-bold" stylesheets="@../css/app.css" text="Mode d'accès:" textFill="#dddddd">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </Label>
-            <Label fx:id="soft_account_access" layoutX="131.0" layoutY="137.0" style="-fx-font-size: 15px;" styleClass="nunito-bold" stylesheets="@../css/app.css" text="Restreint" textFill="WHITE">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </Label>
-         </children>
+<AnchorPane fx:id="main_app_frame" prefHeight="683.0" prefWidth="1135.0"
+            style="-fx-background-color: F9F9F9; -fx-background-radius: 10; -fx-font-size: 22px;"
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fr.skaayz.gsb_medecin_mac.MainController">
+   <VBox prefHeight="92.0" prefWidth="1135.0">
+      <Pane fx:id="soft_navbar" prefHeight="91.0" prefWidth="1135.0"
+            style="-fx-background-color: ffffff; -fx-background-radius: 10;">
+         <Button fx:id="soft_back_button" layoutX="-71.0" layoutY="15.0" minHeight="-Infinity"
+                 minWidth="-Infinity" mnemonicParsing="false" onAction="#softBackButtonClicked" prefHeight="60.0"
+                 prefWidth="267.0" style="-fx-font-size: 16;" stylesheets="@../css/app.css" text="RETOUR"
+                 textFill="#5584e6">
+            <graphic>
+               <ImageView fitHeight="60.0" fitWidth="197.0" pickOnBounds="true" preserveRatio="true"
+                          styleClass="button-transparent-onWhite">
+                  <cursor>
+                     <Cursor fx:constant="HAND"/>
+                  </cursor>
+                  <Image url="@../assets/icons/arrow_left_blue.png"/>
+               </ImageView>
+            </graphic>
+            <styleClass>
+               <String fx:value="button-transparent-onWhite"/>
+               <String fx:value="nunito-bold"/>
+            </styleClass>
+            <opaqueInsets>
+               <Insets/>
+            </opaqueInsets>
+            <cursor>
+               <Cursor fx:constant="HAND"/>
+            </cursor>
+         </Button>
+         <Button fx:id="soft_close_button" layoutX="1055.0" layoutY="15.0" mnemonicParsing="false"
+                 onAction="#softCloseButtonClicked" prefHeight="60.0" prefWidth="50.0"
+                 stylesheets="@../css/app.css" textFill="#5584e6">
+            <styleClass>
+               <String fx:value="button-transparent-onWhite"/>
+               <String fx:value="nunito-bold"/>
+            </styleClass>
+            <opaqueInsets>
+               <Insets/>
+            </opaqueInsets>
+            <graphic>
+               <ImageView fitHeight="60.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true"
+                          styleClass="button-transparent-onWhite">
+                  <cursor>
+                     <Cursor fx:constant="HAND"/>
+                  </cursor>
+                  <Image url="@../assets/icons/close_blue.png"/>
+               </ImageView>
+            </graphic>
+            <cursor>
+               <Cursor fx:constant="HAND"/>
+            </cursor>
+         </Button>
+         <Button fx:id="soft_countries_button" layoutX="487.0" mnemonicParsing="false"
+                 onAction="#softCountriesButtonClicked" prefHeight="91.0" prefWidth="178.0"
+                 styleClass="button-soft" stylesheets="@../css/app.css" text="Pays">
+            <cursor>
+               <Cursor fx:constant="HAND"/>
+            </cursor>
+         </Button>
+         <Button fx:id="soft_departs_button" layoutX="666.0" mnemonicParsing="false"
+                 onAction="#softDepartsButtonClicked" prefHeight="91.0" prefWidth="178.0" styleClass="button-soft"
+                 stylesheets="@../css/app.css" text="Départements">
+            <cursor>
+               <Cursor fx:constant="HAND"/>
+            </cursor>
+         </Button>
+         <Button fx:id="soft_medics_button" layoutX="845.0" mnemonicParsing="false"
+                 onAction="#softMedicsButtonClicked" prefHeight="91.0" prefWidth="178.0" styleClass="button-soft"
+                 stylesheets="@../css/app.css" text="Médecins">
+            <cursor>
+               <Cursor fx:constant="HAND"/>
+            </cursor>
+         </Button>
+         <Button fx:id="soft_home_button" layoutX="310.0" mnemonicParsing="false"
+                 onAction="#softHomeButtonClicked" prefHeight="91.0" prefWidth="178.0" styleClass="button-soft"
+                 stylesheets="@../css/app.css" text="Accueil">
+            <cursor>
+               <Cursor fx:constant="HAND"/>
+            </cursor>
+         </Button>
       </Pane>
-      <BorderPane fx:id="soft_RightBorderPane" layoutX="275.0" layoutY="109.0" prefHeight="557.0" prefWidth="846.0" />
-   </children>
+   </VBox>
+   <Pane layoutX="14.0" layoutY="107.0" prefHeight="559.0" prefWidth="250.0"
+         style="-fx-background-color: #5584e6; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
+      <Button fx:id="soft_disconnect_button" layoutX="29.0" layoutY="495.0" mnemonicParsing="false"
+              onAction="#softDisconnectButtonClicked" prefHeight="42.0" prefWidth="185.0"
+              style="-fx-background-radius: 5;" styleClass="button-white" stylesheets="@../css/app.css"
+              text="Déconnexion">
+         <font>
+            <Font size="15.0"/>
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND"/>
+         </cursor>
+      </Button>
+      <ImageView fitHeight="524.0" fitWidth="67.0" layoutX="26.0" layoutY="27.0" pickOnBounds="true"
+                 preserveRatio="true">
+         <Image url="@../assets/icons/user.png"/>
+      </ImageView>
+      <Label fx:id="soft_account_type" layoutX="30.0" layoutY="108.0" styleClass="nunito-bold"
+             stylesheets="@../css/app.css" text="Invité" textFill="WHITE">
+         <font>
+            <Font size="17.0"/>
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="137.0" style="-fx-font-size: 15px;" styleClass="nunito-bold"
+             stylesheets="@../css/app.css" text="Mode d'accès:" textFill="#dddddd">
+         <font>
+            <Font size="10.0"/>
+         </font>
+      </Label>
+      <Label fx:id="soft_account_access" layoutX="131.0" layoutY="137.0" style="-fx-font-size: 15px;"
+             styleClass="nunito-bold" stylesheets="@../css/app.css" text="Restreint" textFill="WHITE">
+         <font>
+            <Font size="10.0"/>
+         </font>
+      </Label>
+   </Pane>
+   <BorderPane fx:id="soft_RightBorderPane" layoutX="275.0" layoutY="109.0" prefHeight="557.0" prefWidth="846.0"/>
 </AnchorPane>

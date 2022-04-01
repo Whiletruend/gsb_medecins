@@ -86,6 +86,67 @@ public class DepartementAccess extends Database {
             e.printStackTrace();
         }
 
+        assert departement != null;
         return departement.getLibelle();
+    }
+
+    public static void updateDepartmentByID(int id, String[] table) {
+        Pays depart_country = PaysAccess.getCountryByLibelle(table[2]);
+
+        try {
+            Database.execute(
+        "UPDATE departement " +
+                "SET libelle = '" + table[1] + "', " +
+                "pays_id = '" + depart_country.getId() + "' " +
+                "WHERE id = " + id + ";"
+            );
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void deleteDepartmentByID(int id) {
+        try {
+            Database.execute("DELETE FROM departement WHERE id = " + id + ";");
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static ObservableList<Departement> getByLike(String search) {
+        ObservableList<Departement> departements_List = FXCollections.observableArrayList();
+
+        try {
+            ResultSet request = Database.query(
+                    "SELECT * FROM departement " +
+                            "WHERE libelle LIKE '%" + search + "%';"
+            );
+
+            while(request.next()) {
+                departements_List.addAll(
+                        new Departement(
+                                request.getInt("id"),
+                                request.getString("libelle"),
+                                request.getInt("pays_id")
+                        )
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return departements_List;
+    }
+
+    public static void createDepart(String[] table) {
+        try {
+            Database.execute(
+                    "INSERT INTO departement(libelle, pays_id) VALUES(" +
+                            "'" + table[0] + "'," +
+                            "'" + table[1] + "');"
+            );
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

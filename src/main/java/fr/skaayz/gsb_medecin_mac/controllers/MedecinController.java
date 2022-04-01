@@ -2,9 +2,8 @@ package fr.skaayz.gsb_medecin_mac.controllers;
 
 import fr.skaayz.gsb_medecin_mac.MainController;
 import fr.skaayz.gsb_medecin_mac.controllers.medecins.EditController;
-import fr.skaayz.gsb_medecin_mac.models.Medecin;
-import fr.skaayz.gsb_medecin_mac.models.MedecinAccess;
-import fr.skaayz.gsb_medecin_mac.models.Utilisateur;
+import fr.skaayz.gsb_medecin_mac.models.*;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,10 +34,10 @@ public class MedecinController implements Initializable {
     public TableView<Medecin> tableView;
 
     @FXML
-    public TableColumn<Medecin, Integer> id, departement_id, specialite_id;
+    public TableColumn<Medecin, Integer> id;
 
     @FXML
-    public TableColumn<Medecin, String> nom, prenom, adresse, tel;
+    public TableColumn<Medecin, String> nom, prenom, adresse, tel, departement, specialite;
 
     @FXML
     public TableColumn<Medecin, String> action;
@@ -94,13 +93,11 @@ public class MedecinController implements Initializable {
             search_textbar.setPrefWidth(710);
         }
 
-        specialite_id.setCellValueFactory(new PropertyValueFactory<>("specialite_id"));
-        departement_id.setCellValueFactory(new PropertyValueFactory<>("departement_id"));
+        specialite.setCellValueFactory(c-> new SimpleStringProperty(SpecialiteAccess.getLibelleByID(c.getValue().getSpecialite_id())));
+        departement.setCellValueFactory(c-> new SimpleStringProperty(DepartementAccess.getLibelleByID(c.getValue().getDepartement_id())));
 
         // Remove tabs without errors
         id.setVisible(false);
-        specialite_id.setVisible(false);
-        departement_id.setVisible(false);
 
         // Create buttons for every rows
         Callback<TableColumn<Medecin, String>, TableCell<Medecin, String>> cellFactory = (param) -> new TableCell<>() {

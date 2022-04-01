@@ -40,7 +40,6 @@ public class Utilisateur {
     }
 
     public static boolean isConnected() {
-        return true;
-        //return Utilisateur.getUtilisateurActuel() != null;
+        return Utilisateur.getUtilisateurActuel() != null;
     }
 }
