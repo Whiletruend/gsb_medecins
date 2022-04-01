@@ -28,6 +28,25 @@ public class PaysAccess extends Database {
         return pays_List;
     }
 
+    public static Pays getCountryByID(int id) {
+        Pays pays = null;
+
+        try {
+            ResultSet request = Database.query("SELECT * FROM pays WHERE id = '" + id + "';");
+
+            if(request.next()) {
+                pays = new Pays(
+                        request.getInt("id"),
+                        request.getString("libelle")
+                );
+            }
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+
+        return pays;
+    }
+
     public static Pays getCountryByLibelle(String libelle) {
         Pays pays = null;
 

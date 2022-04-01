@@ -18,7 +18,7 @@ public class DepartementAccess extends Database {
                         new Departement(
                             request.getInt("id"),
                             request.getString("libelle"),
-                            request.getInt("pays_id")
+                            PaysAccess.getCountryByID(request.getInt("pays_id"))
                         )
                 );
             }
@@ -39,7 +39,7 @@ public class DepartementAccess extends Database {
                 departement = new Departement(
                         request.getInt("id"),
                         request.getString("libelle"),
-                        request.getInt("pays_id")
+                        PaysAccess.getCountryByID(request.getInt("pays_id"))
                 );
             }
         } catch(SQLException e) {
@@ -59,7 +59,7 @@ public class DepartementAccess extends Database {
                 departement = new Departement(
                         request.getInt("id"),
                         request.getString("libelle"),
-                        request.getInt("pays_id")
+                        PaysAccess.getCountryByID(request.getInt("pays_id"))
                 );
             }
         } catch(SQLException e) {
@@ -79,7 +79,7 @@ public class DepartementAccess extends Database {
                 departement = new Departement(
                         request.getInt("id"),
                         request.getString("libelle"),
-                        request.getInt("pays_id")
+                        PaysAccess.getCountryByID(request.getInt("pays_id"))
                 );
             }
         } catch(SQLException e) {
@@ -127,7 +127,7 @@ public class DepartementAccess extends Database {
                         new Departement(
                                 request.getInt("id"),
                                 request.getString("libelle"),
-                                request.getInt("pays_id")
+                                PaysAccess.getCountryByID(request.getInt("pays_id"))
                         )
                 );
             }

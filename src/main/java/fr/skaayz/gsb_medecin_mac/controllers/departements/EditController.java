@@ -1,6 +1,5 @@
 package fr.skaayz.gsb_medecin_mac.controllers.departements;
 
-import fr.skaayz.gsb_medecin_mac.MainController;
 import fr.skaayz.gsb_medecin_mac.models.*;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

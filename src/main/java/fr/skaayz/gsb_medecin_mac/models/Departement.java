@@ -4,13 +4,13 @@ public class Departement {
     // Variables
     private int id;
     private String libelle;
-    private int pays_id;
+    private Pays pays;
 
     // Constructor
-    public Departement(int id, String libelle, int pays_id) {
+    public Departement(int id, String libelle, Pays pays_id) {
         this.id = id;
         this.libelle = libelle;
-        this.pays_id = pays_id;
+        this.pays = pays_id;
     }
 
     // Functions
@@ -22,7 +22,11 @@ public class Departement {
         return libelle;
     }
 
+    public Pays getPays() {
+        return pays;
+    }
+
     public int getPays_id() {
-        return pays_id;
+        return pays.getId();
     }
 }

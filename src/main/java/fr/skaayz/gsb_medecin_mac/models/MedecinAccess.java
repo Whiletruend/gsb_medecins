@@ -11,7 +11,7 @@ public class MedecinAccess extends Database {
         ObservableList<Medecin> medecins_List = FXCollections.observableArrayList();
 
         try {
-            ResultSet request = Database.query("SELECT * FROM medecin;");
+            ResultSet request = Database.query("SELECT * FROM medecin LIMIT 50;");
 
             while(request.next()) {
                 medecins_List.addAll(
@@ -21,8 +21,8 @@ public class MedecinAccess extends Database {
                         request.getString("prenom"),
                         request.getString("adresse"),
                         request.getString("tel"),
-                        request.getInt("specialite_id"),
-                        request.getInt("departement_id")
+                        SpecialiteAccess.getSpecialiteByID(request.getInt("specialite_id")),
+                        DepartementAccess.getDepartementByID(request.getInt("departement_id"))
                     )
                 );
             }
@@ -46,8 +46,8 @@ public class MedecinAccess extends Database {
                     request.getString("prenom"),
                     request.getString("adresse"),
                     request.getString("tel"),
-                    request.getInt("specialite_id"),
-                    request.getInt("departement_id")
+                    SpecialiteAccess.getSpecialiteByID(request.getInt("specialite_id")),
+                    DepartementAccess.getDepartementByID(request.getInt("departement_id"))
                 );
             }
         } catch(SQLException e) {
@@ -75,8 +75,8 @@ public class MedecinAccess extends Database {
                             request.getString("prenom"),
                             request.getString("adresse"),
                             request.getString("tel"),
-                            request.getInt("specialite_id"),
-                            request.getInt("departement_id")
+                            SpecialiteAccess.getSpecialiteByID(request.getInt("specialite_id")),
+                            DepartementAccess.getDepartementByID(request.getInt("departement_id"))
                         )
                 );
             }
