@@ -35,7 +35,7 @@ public class UtilisateurController {
             connect_Infos.setLayoutX(45);
             connect_Infos.setText("Tous les champs doivent être complétés");
         } else {
-            String username = connect_username.getText();
+            String username = encryptToSHA512(connect_username.getText(), "medecins_gsb");
             String password = encryptToSHA512(connect_password.getText(), "gsb_medecins");
 
             Utilisateur user = UtilisateurAccess.getUtilisateur(username, password);
