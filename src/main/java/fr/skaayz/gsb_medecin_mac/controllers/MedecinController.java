@@ -22,6 +22,7 @@ import java.util.ResourceBundle;
 
 public class MedecinController implements Initializable {
     // Regular variables
+    private int value = 0;
 
     // FXML variables
     @FXML
