@@ -50,6 +50,14 @@ public class AddController implements Initializable {
             return;
         }
 
+        if(DepartementAccess.getDepartByLibelle(depart_textfield_libelle.getText()) != null) {
+            // Show popup
+            Alert alert = new Alert(Alert.AlertType.NONE, "Ce département existe déjà.", ButtonType.OK);
+            alert.showAndWait();
+
+            return;
+        }
+
         // Create infos table
         String[] depart_informations = new String[2];
 

@@ -75,6 +75,14 @@ public class EditController implements Initializable {
             return;
         }
 
+        if(PaysAccess.getCountryByLibelle(country_textfield_libelle.getText()) != null) {
+            // Show popup
+            Alert alert = new Alert(Alert.AlertType.NONE, "Ce pays existe déjà.", ButtonType.OK);
+            alert.showAndWait();
+
+            return;
+        }
+
         // Create infos table
         String[] new_informations = new String[2];
 

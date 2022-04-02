@@ -138,6 +138,26 @@ public class DepartementAccess extends Database {
         return departements_List;
     }
 
+    public static Departement getDepartByLibelle(String libelle) {
+        Departement departement = null;
+
+        try {
+            ResultSet request = Database.query("SELECT * FROM departement WHERE libelle = '" + libelle + "';");
+
+            if(request.next()) {
+                departement = new Departement(
+                        request.getInt("id"),
+                        request.getString("libelle"),
+                        PaysAccess.getCountryByID(request.getInt("pays_id"))
+                );
+            }
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+
+        return departement;
+    }
+
     public static void createDepart(String[] table) {
         try {
             Database.execute(
