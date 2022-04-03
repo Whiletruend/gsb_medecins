@@ -7,10 +7,10 @@ public class Departement {
     private Pays pays;
 
     // Constructor
-    public Departement(int id, String libelle, Pays pays_id) {
+    public Departement(int id, String libelle, Pays pays) {
         this.id = id;
         this.libelle = libelle;
-        this.pays = pays_id;
+        this.pays = pays;
     }
 
     // Functions

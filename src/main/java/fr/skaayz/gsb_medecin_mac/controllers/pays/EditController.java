@@ -67,9 +67,9 @@ public class EditController implements Initializable {
             return;
         }
 
-        if( (country_textfield_libelle.getText()).matches("[a-zA-Z\\s]{2,45}") ) {
+        if(!country_textfield_libelle.getText().matches("[a-zA-Z\\sàâäéèêëîïôöùûüçÀÂÄÉÈÊËÎÏÔÖÙÛÜÇ-]{2,45}")) {
             // Show popup
-            Alert alert = new Alert(Alert.AlertType.NONE, "Le libellé d'un pays doit comporter entre 2 et 45 caractères et ne peut contenir des valeurs numériques.", ButtonType.OK);
+            Alert alert = new Alert(Alert.AlertType.NONE, "Le libellé d'un pays doit comporter entre 2 et 45 caractères et ne peut contenir seulement des lettres.", ButtonType.OK);
             alert.showAndWait();
 
             return;
