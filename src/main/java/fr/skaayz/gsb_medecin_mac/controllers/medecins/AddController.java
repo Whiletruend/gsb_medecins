@@ -55,17 +55,17 @@ public class AddController implements Initializable {
             return;
         }
 
-        if( (medic_textfield_firstname.getText()).matches(".*\\d.*") ) {
+        if( (medic_textfield_firstname.getText()).matches("[a-zA-Z\\s]{2,30}") ) {
             // Show popup
-            Alert alert = new Alert(Alert.AlertType.NONE, "Le nom d'un médecin ne peut être numérique.", ButtonType.OK);
+            Alert alert = new Alert(Alert.AlertType.NONE, "Le nom d'un médecin doit comporter entre 2 et 45 caractères et ne peut contenir des valeurs numériques.", ButtonType.OK);
             alert.showAndWait();
 
             return;
         }
 
-        if( (medic_textfield_lastname.getText()).matches(".*\\d.*") ) {
+        if( (medic_textfield_lastname.getText()).matches("[a-zA-Z\\s]{2,30}") ) {
             // Show popup
-            Alert alert = new Alert(Alert.AlertType.NONE, "Le prénom d'un médecin ne peut être numérique.", ButtonType.OK);
+            Alert alert = new Alert(Alert.AlertType.NONE, "Le prénom d'un médecin doit comporter entre 2 et 45 caractères et ne peut contenir des valeurs numériques.", ButtonType.OK);
             alert.showAndWait();
 
             return;

@@ -66,9 +66,9 @@ public class EditController implements Initializable {
                 return;
             }
 
-            if( (depart_textfield_libelle.getText()).matches(".*\\d.*") ) {
+            if( (depart_textfield_libelle.getText()).matches(".[a-zA-Z\s]{2,45}") ) {
                 // Show popup
-                Alert alert = new Alert(Alert.AlertType.NONE, "Le libellé d'un département ne peut être numérique.", ButtonType.OK);
+                Alert alert = new Alert(Alert.AlertType.NONE, "Le libellé d'un département doit comporter entre 2 et 45 caractères et ne peut contenir des valeurs numériques.", ButtonType.OK);
                 alert.showAndWait();
 
                 return;
