@@ -15,12 +15,19 @@ public class Database {
 
     // Functions
     private static Connection getConnection() {
-        try {
-            conn_db = DriverManager.getConnection(link_db, user_db, pass_db);
-        } catch(Exception e) {
-            e.printStackTrace();
+        // if the connection isn't set so create it
+        // else just goes to the return so we don't need to re-create the connection
+        if(conn_db == null) {
+            try {
+                conn_db = DriverManager.getConnection(link_db, user_db, pass_db);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
+        System.out.println("c maran tu boude plu quan il sagit de lap4");
+
+        // return the connection
         return conn_db;
     }
 
