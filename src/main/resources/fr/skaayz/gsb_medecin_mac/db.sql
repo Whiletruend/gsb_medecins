@@ -40,6 +40,18 @@ CREATE TABLE IF NOT EXISTS utilisateur(
     mot_de_passe VARCHAR(255) NOT NULL
 );
 
+/* FUNCTIONS & TRIGGERS FOR 'medecin' TABLE */
+CREATE FUNCTION `capitalize` (str varchar(255)) RETURNS varchar(255)
+BEGIN
+    return CONCAT(UPPER(SUBSTRING(str, 1, 1)), LOWER(SUBSTRING(str, 2)));
+END;
+
+CREATE TRIGGER upperAndCapitalize_INSERT BEFORE INSERT ON medecin FOR EACH ROW
+SET NEW.nom = UPPER(NEW.nom), NEW.prenom = capitalize(NEW.prenom);
+
+CREATE TRIGGER upperAndCapitalize_UPDATE BEFORE UPDATE ON medecin FOR EACH ROW
+    SET NEW.nom = UPPER(NEW.nom), NEW.prenom = capitalize(NEW.prenom);
+
 /* INSERT EVERY COUNTRIES */
 INSERT INTO pays (id, libelle) VALUES (1, 'France');
 INSERT INTO pays (id, libelle) VALUES (2, 'Angleterre');

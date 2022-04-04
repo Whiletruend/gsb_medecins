@@ -6,67 +6,49 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
-            prefWidth="385.0" style="-fx-background-color: #5584e6; -fx-background-radius: 25;"
-            stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="fr.skaayz.gsb_medecin_mac.MainController">
-    <Label layoutX="21.0" layoutY="325.0" mouseTransparent="true" styleClass="nunito-regular"
-           text="Bienvenue sur l'app" textAlignment="JUSTIFY" textFill="#fdfeff">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="385.0" style="-fx-background-color: #5584e6; -fx-background-radius: 25;" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.skaayz.gsb_medecin_mac.MainController">
+    <Label layoutX="21.0" layoutY="325.0" mouseTransparent="true" styleClass="nunito-regular" text="Bienvenue sur l'app" textAlignment="JUSTIFY" textFill="#fdfeff">
         <font>
-            <Font name="Inconsolata" size="28.0"/>
+            <Font name="Inconsolata" size="28.0" />
         </font>
     </Label>
-    <Label layoutX="21.0" layoutY="355.0" mouseTransparent="true" styleClass="nunito-bold"
-           text="Galaxy Swiss Bourdin !" textAlignment="JUSTIFY" textFill="#fdfeff">
+    <Label layoutX="21.0" layoutY="355.0" mouseTransparent="true" styleClass="nunito-bold" text="Galaxy Swiss Bourdin !" textAlignment="JUSTIFY" textFill="#fdfeff">
         <font>
-            <Font name="Arial" size="28.0"/>
+            <Font name="Arial" size="28.0" />
         </font>
     </Label>
-    <Label alignment="TOP_LEFT" layoutX="21.0" layoutY="393.0" mouseTransparent="true" prefHeight="116.0"
-           prefWidth="348.0" styleClass="nunito-light"
-           text="Voici la nouvelle application de GSB vous permettant de visualiser les différents médecins répertoriés. Vous pourrez ainsi voir leurs prénom, nom, adresse, numéro de téléphone, spécialité et département de ceux-ci."
-           textAlignment="JUSTIFY" textFill="#e6e6e6" wrapText="true">
+    <Label alignment="TOP_LEFT" layoutX="21.0" layoutY="393.0" mouseTransparent="true" prefHeight="116.0" prefWidth="348.0" styleClass="nunito-light" text="Voici la nouvelle application de GSB vous permettant de visualiser les différents médecins répertoriés. Vous pourrez ainsi voir leurs prénom, nom, adresse, numéro de téléphone, spécialité et département de ceux-ci." textAlignment="JUSTIFY" textFill="#e6e6e6" wrapText="true">
         <font>
-            <Font name="Arial" size="14.0"/>
+            <Font name="Arial" size="14.0" />
         </font>
     </Label>
-    <Button fx:id="main_admin_button" layoutX="19.0" layoutY="494.0" mnemonicParsing="false"
-            onAction="#mainAdminButtonClicked" prefHeight="40.0" prefWidth="348.0"
-            style="-fx-background-radius: 25;" styleClass="button-white" stylesheets="@../css/app.css"
-            text="Connexion administrateur" textAlignment="CENTER" textFill="#383838">
+    <Button fx:id="main_admin_button" layoutX="19.0" layoutY="494.0" mnemonicParsing="false" onAction="#mainAdminButtonClicked" prefHeight="40.0" prefWidth="348.0" style="-fx-background-radius: 25;" styleClass="button-white" stylesheets="@../css/app.css" text="Connexion administrateur" textAlignment="CENTER" textFill="#383838">
         <font>
-            <Font size="14.0"/>
+            <Font size="14.0" />
         </font>
         <cursor>
-            <Cursor fx:constant="HAND"/>
+            <Cursor fx:constant="HAND" />
         </cursor>
     </Button>
-    <Button fx:id="not_admin_button" contentDisplay="CENTER" layoutX="21.0" layoutY="539.0" mnemonicParsing="false"
-            onAction="#mainNotAdminButtonClicked" prefHeight="40.0" prefWidth="348.0" style="-fx-background-radius: 25;"
-            styleClass="button-transparent"
-            stylesheets="@../css/app.css" text="Accéder avec le mode restreint" textAlignment="CENTER"
-            textFill="#fdfeff" underline="true">
+    <Button fx:id="not_admin_button" contentDisplay="CENTER" layoutX="21.0" layoutY="539.0" mnemonicParsing="false" onAction="#mainNotAdminButtonClicked" prefHeight="40.0" prefWidth="348.0" style="-fx-background-radius: 25;" styleClass="button-transparent" stylesheets="@../css/app.css" text="Accéder avec le mode restreint" textAlignment="CENTER" textFill="#fdfeff" underline="true">
         <font>
-            <Font size="14.0"/>
+            <Font size="14.0" />
         </font>
         <cursor>
-            <Cursor fx:constant="HAND"/>
+            <Cursor fx:constant="HAND" />
         </cursor>
     </Button>
-    <ImageView fitHeight="400.0" fitWidth="300.0" layoutX="42.5" layoutY="55.0" pickOnBounds="true"
-               preserveRatio="true">
-        <Image url="@../assets/img/welcome_main.png"/>
+    <ImageView fitHeight="400.0" fitWidth="300.0" layoutX="42.5" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../assets/img/welcome_main.png" />
     </ImageView>
-    <Button fx:id="main_close_button" layoutX="297.0" layoutY="-7.0" mnemonicParsing="false"
-            onAction="#closeButtonClicked" scaleX="0.5" scaleY="0.5" style="-fx-background-color: transparent;"
-            stylesheets="@../css/app.css">
+    <Button fx:id="main_close_button" layoutX="297.0" layoutY="-7.0" mnemonicParsing="false" onAction="#closeButtonClicked" scaleX="0.5" scaleY="0.5" style="-fx-background-color: transparent;" stylesheets="@../css/app.css">
         <graphic>
             <ImageView fitHeight="76.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="@../assets/icons/close.png"/>
+                <Image url="@../assets/icons/close.png" />
             </ImageView>
         </graphic>
         <cursor>
-            <Cursor fx:constant="HAND"/>
+            <Cursor fx:constant="HAND" />
         </cursor>
     </Button>
 </AnchorPane>
