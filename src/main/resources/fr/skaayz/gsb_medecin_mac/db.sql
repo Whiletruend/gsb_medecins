@@ -41,9 +41,31 @@ CREATE TABLE IF NOT EXISTS utilisateur(
 );
 
 /* FUNCTIONS & TRIGGERS FOR 'medecin' TABLE */
-CREATE FUNCTION `capitalize` (str varchar(255)) RETURNS varchar(255)
+CREATE
+    FUNCTION `INITCAP`(input VARCHAR(255))
+    RETURNS VARCHAR(255)
 BEGIN
-    return CONCAT(UPPER(SUBSTRING(str, 1, 1)), LOWER(SUBSTRING(str, 2)));
+    DECLARE len INT;
+    DECLARE i INT;
+
+    SET len   = CHAR_LENGTH(input);
+    SET input = LOWER(input);
+    SET i = 0;
+
+    WHILE (i < len) DO
+            IF (MID(input,i,1) = ' ' OR MID(input, i, 1) = '-' OR i = 0) THEN
+                IF (i < len) THEN
+                    SET input = CONCAT(
+                            LEFT(input, i),
+                            UPPER(MID(input, i + 1, 1)),
+                            RIGHT(input, len - i - 1)
+                        );
+                END IF;
+            END IF;
+            SET i = i + 1;
+        END WHILE;
+
+    RETURN input;
 END;
 
 CREATE TRIGGER upperAndCapitalize_INSERT BEFORE INSERT ON medecin FOR EACH ROW
