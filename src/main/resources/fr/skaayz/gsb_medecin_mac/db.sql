@@ -53,12 +53,12 @@ BEGIN
     SET i = 0;
 
     WHILE (i < len) DO
-            IF (MID(input,i,1) = ' ' OR MID(input, i, 1) = '-' OR i = 0) THEN
+            IF (MID(input,i,1) = ' ' OR MID(input, i, 1) = '-' OR MID(input, i, 1) = '\'' OR i = 0) THEN
                 IF (i < len) THEN
                     SET input = CONCAT(
-                            LEFT(input, i),
-                            UPPER(MID(input, i + 1, 1)),
-                            RIGHT(input, len - i - 1)
+                            LEFT(input,i),
+                            UPPER(MID(input,i + 1,1)),
+                            RIGHT(input,len - i - 1)
                         );
                 END IF;
             END IF;
