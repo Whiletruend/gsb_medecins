@@ -69,10 +69,10 @@ BEGIN
 END;
 
 CREATE TRIGGER upperAndCapitalize_INSERT BEFORE INSERT ON medecin FOR EACH ROW
-SET NEW.nom = UPPER(NEW.nom), NEW.prenom = capitalize(NEW.prenom);
+SET NEW.nom = UPPER(NEW.nom), NEW.prenom = INITCAP(NEW.prenom);
 
 CREATE TRIGGER upperAndCapitalize_UPDATE BEFORE UPDATE ON medecin FOR EACH ROW
-    SET NEW.nom = UPPER(NEW.nom), NEW.prenom = capitalize(NEW.prenom);
+    SET NEW.nom = UPPER(NEW.nom), NEW.prenom = INITCAP(NEW.prenom);
 
 /* INSERT EVERY COUNTRIES */
 INSERT INTO pays (id, libelle) VALUES (1, 'France');
