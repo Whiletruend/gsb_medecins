@@ -25,8 +25,6 @@ public class Database {
             }
         }
 
-        System.out.println("c maran tu boude plu quan il sagit de lap4");
-
         // return the connection
         return conn_db;
     }

@@ -94,9 +94,9 @@ public class EditController implements Initializable {
                 return;
             }
 
-            if(!MainController.isNumeric(medic_textfield_phone.getText())) {
+            if(!MainController.isNumeric(medic_textfield_phone.getText()) || medic_textfield_phone.getText().length() < 10) {
                 // Show popup
-                Alert alert = new Alert(Alert.AlertType.NONE, "Le numéro de téléphone doit comporter seulement des chiffres", ButtonType.OK);
+                Alert alert = new Alert(Alert.AlertType.NONE, "Le numéro de téléphone doit être supérieur ou égal à 10 caractères et ne peut seulement être des chiffres", ButtonType.OK);
                 alert.showAndWait();
 
                 return;
